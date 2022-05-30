@@ -5,9 +5,9 @@ Make sure to install elan: https://www.github.com/kha/elan
 
 ** Set up ~lean-tpe~ repository
 #+begin_src bash
-git clone git@github.com:sontungtran/pact-lean-low-resource.git $LEAN_TPE_DIR
+git clone git@github.com:sontungtran/pact-lean-low-resource.git $PACT_DIR
 
-cd $LEAN_TPE_DIR
+cd $PACT_DIR
 
 leanpkg configure
 
@@ -28,17 +28,8 @@ The Lean scripts will dump JSON messages to a specified file, with a new message
 *** Check that single-threaded baseline evaluation works
 
 #+begin_src
-# greedy strategy
 
-lean --run ./src/evaluation/greedy/baseline.lean ./test/dummy_decls2.names ./test/dummy_out_greedy_baseline.log 50 5 300 > ./test/dummy_out_greedy_baseline.out 2>&1
-
-# this should be 31
-cat ./test/dummy_out_greedy_baseline.log | grep | wc -l
-
-# this should be 0 (TODO(jesse): allow optional environment-setting)
-cat ./test/dummy_out_greedy_baseline.log | grep '"success":true' | wc -l
-
-# bfs strategy
+# bfs strategy only for now
 
 lean --run ./src/evaluation/bfs/baseline.lean ./test/dummy_decls2.names ./test/dummy_out_bfs_baseline.log 50 25 50 5 300 > ./test/dummy_out_bfs_baseline.out 2>&1
 
@@ -52,18 +43,8 @@ cat ./test/dummy_out_bfs_baseline.log | grep '"success":true' | wc -l
 *** Check that single-threaded GPT-f evaluation works
 
 #+begin_src
-# greedy strategy
 
-# args: decl_names logfile max_tokens temp top_p n best_of fuel engine_id api_key
-lean --run ./src/evaluation/greedy/gptf.lean ./test/dummy_decls2.names ./test/dummy_out_greedy_gptf.log 256 0.7 1.0 10 10 50 formal-lean-wm-to-tt-m1-m2-v4-c4 $OPENAI_API_KEY 5 300 > ./test/dummy_out_greedy_gptf.out 2>&1
-
-# should be 31
-cat ./test/dummy_out_greedy_gptf.log | grep | wc -l
-
-# should be ~20
-cat ./test/dummy_out_greedy_gptf.log | grep '"success":true' | wc -l
-
-# bfs strategy
+# bfs strategy only for now
 
 # args: decl_names logfile max_tokens temp top_p n best_of fuel max_width max_depth engine_id api_key
 lean --run ./src/evaluation/bfs/gptf.lean ./test/dummy_decls2.names ./test/dummy_out_bfs_gptf.log 256 0.7 1.0 10 10 50 10 25 formal-lean-wm-to-tt-m1-m2-v4-c4 $OPENAI_API_KEY 5 300 > ./test/dummy_out_bfs_gptf.out 2>&1
@@ -135,19 +116,13 @@ optional arguments:
 
 Check that the baseline version works. Inspect some of the output files.
 #+begin_src bash
-python ./scripts/parallel_eval.py 4 8 ./test/dummy_decls2.names ./test_parallel/baseline/ --fuel 50 --api baseline --search_strategy greedy --tac_timeout 5 --global_timeout 300
-#+end_src
-
-Check that the greedy GPT-f version works. Inspect some of the output files.
-
-#+begin_src bash
-python ./scripts/parallel_eval.py 4 8 ./test/dummy_decls2.names ./test_parallel/gptf_greedy/ --max_tokens 256 --temperature 0.7 --top_p 1.0 --n 10 --best_of 10 --fuel 50 --engine_id formal-lean-wm-to-tt-m1-m2-v4-c4 --api_key $OPENAI_API_KEY --api gptf --search_strategy greedy --tac_timeout 5 --global_timeout 300
+python ./scripts/parallel_eval.py 4 8 ./test/dummy_decls2.names ./test_parallel/baseline/ --fuel 50 --api baseline --search_strategy bfs --tac_timeout 5 --global_timeout 300
 #+end_src
 
 Check that the BFS GPT-f version works. Inspect some of the output files.
 
 #+begin_src bash
-python ./scripts/parallel_eval.py 4 8 ./test/dummy_decls2.names ./test_parallel/gptf_bfs/ --max_tokens 256 --temperature 0.7 --top_p 1.0 --n 10 --best_of 10 --fuel 50 --max_width 10 --max_depth 50 --engine_id formal-lean-wm-to-tt-m1-m2-v4-c4 --api_key $OPENAI_API_KEY --api gptf --search_strategy bfs --tac_timeout 5 --global_timeout 300
+python ./scripts/parallel_eval_resumeable_json.py 1 1 ./test/dummy_decls_single.names ./test_parallel/gptf_neo_dummy/ --max_tokens 256 --temperature 0.7 --top_p 1.0 --n 40 --best_of 40 --fuel 200 --max_width 32 --max_depth 128 --engine_id formal-lean-wm-to-tt-m1-m2-v4-c4 --api_key asdfasd --api gptf_neo_8epoch_modified --search_strategy bfs --tac_timeout 5 --global_timeout 300000
 #+end_src
 
 * Data processing
@@ -161,8 +136,3 @@ lean --run ./src/tools/filter_defs.lean $ORIGINAL_NAMES_FILE $NEW_NAMES_FILE
 python ./scripts/shuffle_lines.py $NAMES_FILE $SHUFFLED_NAMES_FILE # optional seed -- seed 12387
 #+end_src
 
-* Guidelines for contributing
-Ensure that the following invariants hold before making a PR or pushing to ~master~:
- - ~leanpkg build~ does not raise any errors.
- - [[*Check that single-threaded GPT-f evaluation works][single-threaded evaluation]] does not fail (check the logs)
- - your API key is not in the source code
