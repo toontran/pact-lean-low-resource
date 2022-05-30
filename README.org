@@ -1,4 +1,7 @@
 #+TITLE: Code for PACT paper on Low Resource
+
+Since the original paper does not have code for the model, I'm replicating the process and made the finetuned model publicly available.
+
 * Setup instructions
 The setups are similar to the publicly available (code)[https://github.com/jesse-michael-han/lean-tpe-public]
 Make sure to install elan: https://www.github.com/kha/elan
