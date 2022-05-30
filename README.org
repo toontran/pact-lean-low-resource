@@ -1,6 +1,6 @@
 #+TITLE: Code for PACT paper on Low Resource
 
-Since the original paper does not have code for the model, I've replicated the process (with changes for low-resource training & evaluation) and made the finetuned model publicly available.
+Since the original paper does not have code for the model, I've replicated the process (with changes for training & evaluation on a single consumer GPU NVIDIA RTX 2080 TI) and made the finetuned model publicly available.
 
 * Setup instructions
 The setups are similar to the publicly available (code)[https://github.com/jesse-michael-han/lean-tpe-public]
