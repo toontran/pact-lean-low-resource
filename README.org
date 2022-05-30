@@ -139,3 +139,13 @@ lean --run ./src/tools/filter_defs.lean $ORIGINAL_NAMES_FILE $NEW_NAMES_FILE
 python ./scripts/shuffle_lines.py $NAMES_FILE $SHUFFLED_NAMES_FILE # optional seed -- seed 12387
 #+end_src
 
+# Reference:
+```
+@article{han2021proof,
+  title={Proof artifact co-training for theorem proving with language models},
+  author={Han, Jesse Michael and Rute, Jason and Wu, Yuhuai and Ayers, Edward W and Polu, Stanislas},
+  journal={arXiv preprint arXiv:2102.06203},
+  year={2021}
+}
+```
+
