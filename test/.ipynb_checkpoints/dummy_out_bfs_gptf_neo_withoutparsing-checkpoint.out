@@ -1,0 +1,4680 @@
+[evaluation_harness_from_decls_file] GOT 32 NAMES
+[evaluation_harness_from_decls_file] WARNING: SKIPPING 1
+[evaluation_harness_from_decls_file] ENTERING run_proof_search_core
+[run_proof_search_step] GOT TSD AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] GOT ENV AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] SET ENV AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (p : α → Prop)
+  [_inst_1 : decidable_pred p] (l : list α), partition p l = (filter p l, filter (not ∘ p) l)
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p]
+   (l : list α), partition p l = (filter p l, filter (not ∘ p) l) 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),	list.partition p l = (list.filter p l, list.filter (not ∘ p) l) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[openai_api] RAW RESPONSE: {"model": "gptf-neo", "choices": [{"text": "simp", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [(partition_filter, partition_filter_left]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition.mem_pair]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition_eq_iff_of_right]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp at L", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp at xl", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp only [partition, finset.ext_eq, add_comm]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition_eq_or_ih, partition_eq_or_ih]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp [partition_eq_cons, partition_eq_cons]", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.33966565132141113]}}, {"text": "rw partition_eq_partition", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw [partition, map_partition, map_empty]", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw [partition_filter, partition_of_eq_right_of_not]", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw partition_iff", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw partition_iff", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw coe_filter_partition", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "rw [partition_eq_partition, partition_eq_partial_iff_partition]", "logprobs": {"token_logprobs": [0.18000736832618713]}}, {"text": "exact ���p :: p, rfl���", "logprobs": {"token_logprobs": [0.07336991280317307]}}, {"text": "exact partition.elim _", "logprobs": {"token_logprobs": [0.07336991280317307]}}, {"text": "exact part.mem_partition", "logprobs": {"token_logprobs": [0.07336991280317307]}}, {"text": "apply_instance", "logprobs": {"token_logprobs": [0.05482714995741844]}}, {"text": "apply partition", "logprobs": {"token_logprobs": [0.05482714995741844]}}, {"text": "intro h", "logprobs": {"token_logprobs": [0.05017728731036186]}}, {"text": "intros", "logprobs": {"token_logprobs": [0.05017728731036186]}}, {"text": "intros", "logprobs": {"token_logprobs": [0.05017728731036186]}}, {"text": "cases l", "logprobs": {"token_logprobs": [0.045786041766405106]}}, {"text": "cases l", "logprobs": {"token_logprobs": [0.045786041766405106]}}, {"text": "refine (partition_of_nonempty_of_empty_pred p).2", "logprobs": {"token_logprobs": [0.03162529692053795]}}, {"text": "refine [partition_eq_subset, partition_eq_subset]", "logprobs": {"token_logprobs": [0.03162529692053795]}}, {"text": "rintro ���a, rfl���", "logprobs": {"token_logprobs": [0.025357801467180252]}}, {"text": "simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm", "logprobs": {"token_logprobs": [0.021271051838994026]}}, {"text": "ext", "logprobs": {"token_logprobs": [0.019727442413568497]}}, {"text": "refl", "logprobs": {"token_logprobs": [0.018820755183696747]}}, {"text": "try { refl }", "logprobs": {"token_logprobs": [0.012026664800941944]}}, {"text": "split", "logprobs": {"token_logprobs": [0.011738300323486328]}}]}
+
+GOT RESPONSE_MSG
+PREDICTIONS: (["simp",
+  "simp [partition]",
+  "simp [(partition_filter, partition_filter_left]",
+  "simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq]",
+  "simp",
+  "simp [partition]",
+  "simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono]",
+  "simp [partition.mem_pair]",
+  "simp [partition_eq_iff_of_right]",
+  "simp at L",
+  "simp at xl",
+  "simp only [partition, finset.ext_eq, add_comm]",
+  "simp [partition_eq_or_ih, partition_eq_or_ih]",
+  "simp",
+  "simp [partition_eq_cons, partition_eq_cons]",
+  "simp",
+  "rw partition_eq_partition",
+  "rw [partition, map_partition, map_empty]",
+  "rw [partition_filter, partition_of_eq_right_of_not]",
+  "rw partition_iff",
+  "rw partition_iff",
+  "rw coe_filter_partition",
+  "rw [partition_eq_partition, partition_eq_partial_iff_partition]",
+  "exact ���p :: p, rfl���",
+  "exact partition.elim _",
+  "exact part.mem_partition",
+  "apply_instance",
+  "apply partition",
+  "intro h",
+  "intros",
+  "intros",
+  "cases l",
+  "cases l",
+  "refine (partition_of_nonempty_of_empty_pred p).2",
+  "refine [partition_eq_subset, partition_eq_subset]",
+  "rintro ���a, rfl���",
+  "simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm",
+  "ext",
+  "refl",
+  "try { refl }",
+  "split"],
+ [0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.0733699,
+  0.0733699,
+  0.0733699,
+  0.0548271,
+  0.0548271,
+  0.0501773,
+  0.0501773,
+  0.0501773,
+  0.045786,
+  0.045786,
+  0.0316253,
+  0.0316253,
+  0.0253578,
+  0.0212711,
+  0.0197274,
+  0.0188208,
+  0.0120267,
+  0.0117383])
+[bfs_step] RESPONSE MSG [["simp",
+  "simp [partition]",
+  "simp [(partition_filter, partition_filter_left]",
+  "simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq]",
+  "simp",
+  "simp [partition]",
+  "simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono]",
+  "simp [partition.mem_pair]",
+  "simp [partition_eq_iff_of_right]",
+  "simp at L",
+  "simp at xl",
+  "simp only [partition, finset.ext_eq, add_comm]",
+  "simp [partition_eq_or_ih, partition_eq_or_ih]",
+  "simp",
+  "simp [partition_eq_cons, partition_eq_cons]",
+  "simp",
+  "rw partition_eq_partition",
+  "rw [partition, map_partition, map_empty]",
+  "rw [partition_filter, partition_of_eq_right_of_not]",
+  "rw partition_iff",
+  "rw partition_iff",
+  "rw coe_filter_partition",
+  "rw [partition_eq_partition, partition_eq_partial_iff_partition]",
+  "exact ���p :: p, rfl���",
+  "exact partition.elim _",
+  "exact part.mem_partition",
+  "apply_instance",
+  "apply partition",
+  "intro h",
+  "intros",
+  "intros",
+  "cases l",
+  "cases l",
+  "refine (partition_of_nonempty_of_empty_pred p).2",
+  "refine [partition_eq_subset, partition_eq_subset]",
+  "rintro ���a, rfl���",
+  "simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm",
+  "ext",
+  "refl",
+  "try { refl }",
+  "split"],
+ [0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.339666,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.180007,
+  0.0733699,
+  0.0733699,
+  0.0733699,
+  0.0548271,
+  0.0548271,
+  0.0501773,
+  0.0501773,
+  0.0501773,
+  0.045786,
+  0.045786,
+  0.0316253,
+  0.0316253,
+  0.0253578,
+  0.0212711,
+  0.0197274,
+  0.0188208,
+  0.0120267,
+  0.0117383]]
+[bfs_step] RUNNING DECODE RESPONSE WITH TAC_TIMEOUT 5000
+[run_proof_search_step] NO GOT DECL 
+[run_all_beam_candidates] DEDUP_UNWRAPPED CANDIDATES: [(simp, 0.339666),
+ (simp [partition], 0.339666),
+ (simp [(partition_filter, partition_filter_left], 0.339666),
+ (simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq], 0.339666),
+ (simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono], 0.339666),
+ (simp [partition.mem_pair], 0.339666),
+ (simp [partition_eq_iff_of_right], 0.339666),
+ (simp at L, 0.339666),
+ (simp at xl, 0.339666),
+ (simp only [partition, finset.ext_eq, add_comm], 0.339666),
+ (simp [partition_eq_or_ih, partition_eq_or_ih], 0.339666),
+ (simp [partition_eq_cons, partition_eq_cons], 0.339666),
+ (rw partition_eq_partition, 0.180007),
+ (rw [partition, map_partition, map_empty], 0.180007),
+ (rw [partition_filter, partition_of_eq_right_of_not], 0.180007),
+ (rw partition_iff, 0.180007),
+ (rw coe_filter_partition, 0.180007),
+ (rw [partition_eq_partition, partition_eq_partial_iff_partition], 0.180007),
+ (exact ���p :: p, rfl���, 0.0733699),
+ (exact partition.elim _, 0.0733699),
+ (exact part.mem_partition, 0.0733699),
+ (apply_instance, 0.0548271),
+ (apply partition, 0.0548271),
+ (intro h, 0.0501773),
+ (intros, 0.0501773),
+ (cases l, 0.045786),
+ (refine (partition_of_nonempty_of_empty_pred p).2, 0.0316253),
+ (refine [partition_eq_subset, partition_eq_subset], 0.0316253),
+ (rintro ���a, rfl���, 0.0253578),
+ (simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm, 0.0212711),
+ (ext, 0.0197274),
+ (refl, 0.0188208),
+ (try { refl }, 0.0120267),
+ (split, 0.0117383)]
+[run_all_beam_candidates] CANDIDATES: [(simp, 0.339666),
+ (simp [partition], 0.339666),
+ (simp [(partition_filter, partition_filter_left], 0.339666),
+ (simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq], 0.339666),
+ (simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono], 0.339666),
+ (simp [partition.mem_pair], 0.339666),
+ (simp [partition_eq_iff_of_right], 0.339666),
+ (simp at L, 0.339666),
+ (simp at xl, 0.339666),
+ (simp only [partition, finset.ext_eq, add_comm], 0.339666),
+ (simp [partition_eq_or_ih, partition_eq_or_ih], 0.339666),
+ (simp [partition_eq_cons, partition_eq_cons], 0.339666),
+ (rw partition_eq_partition, 0.180007),
+ (rw [partition, map_partition, map_empty], 0.180007),
+ (rw [partition_filter, partition_of_eq_right_of_not], 0.180007),
+ (rw partition_iff, 0.180007),
+ (rw coe_filter_partition, 0.180007),
+ (rw [partition_eq_partition, partition_eq_partial_iff_partition], 0.180007),
+ (exact ���p :: p, rfl���, 0.0733699),
+ (exact partition.elim _, 0.0733699),
+ (exact part.mem_partition, 0.0733699),
+ (apply_instance, 0.0548271),
+ (apply partition, 0.0548271),
+ (intro h, 0.0501773),
+ (intros, 0.0501773),
+ (cases l, 0.045786),
+ (refine (partition_of_nonempty_of_empty_pred p).2, 0.0316253),
+ (refine [partition_eq_subset, partition_eq_subset], 0.0316253),
+ (rintro ���a, rfl���, 0.0253578),
+ (simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm, 0.0212711),
+ (ext, 0.0197274),
+ (refl, 0.0188208),
+ (try { refl }, 0.0120267),
+ (split, 0.0117383)]
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [(partition_filter, partition_filter_left]
+[try_get_tac_and_capture_result] parse_itactic failed on simp [(partition_filter, partition_filter_left]
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on simp [(partition_filter, partition_filter_left]
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_mul, mem_filter_eq_partition, mem_partition_eq]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_mul'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_mul'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [iff_not_le_iff_of_le, partition_of_eq_partition p, bitmono]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'iff_not_le_iff_of_le'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'iff_not_le_iff_of_le'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition.mem_pair]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition.mem_pair]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'partition.mem_pair' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'partition.mem_pair' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_eq_iff_of_right]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_eq_iff_of_right]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_iff_of_right'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_iff_of_right'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp at L
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp at L
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: get_local tactic failed, unknown 'L' local
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: get_local tactic failed, unknown 'L' local
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp at xl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp at xl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: get_local tactic failed, unknown 'xl' local
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: get_local tactic failed, unknown 'xl' local
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition, finset.ext_eq, add_comm]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition, finset.ext_eq, add_comm]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'finset.ext_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'finset.ext_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_eq_or_ih, partition_eq_or_ih]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_eq_or_ih, partition_eq_or_ih]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_or_ih'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_or_ih'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_eq_cons, partition_eq_cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_eq_cons, partition_eq_cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_eq_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_eq_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition, map_partition, map_empty]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition, map_partition, map_empty]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_filter, partition_of_eq_right_of_not]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_filter, partition_of_eq_right_of_not]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_filter'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_filter'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_iff
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_iff
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw coe_filter_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw coe_filter_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'coe_filter_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'coe_filter_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partition, partition_eq_partial_iff_partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partition, partition_eq_partial_iff_partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact ���p :: p, rfl���
+[try_get_tac_and_capture_result] parse_itactic failed on exact ���p :: p, rfl���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on exact ���p :: p, rfl���
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact partition.elim _
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact partition.elim _
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact part.mem_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact part.mem_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.mem_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.mem_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply_instance
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply_instance
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: apply_instance tactic fail, target is not a type class
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: apply_instance tactic fail, target is not a type class
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+with
+  Π {α : Type ?} (p : α → Prop) [_inst_1 : decidable_pred p], list α → list α × list α
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+with
+  Π {α : Type ?} (p : α → Prop) [_inst_1 : decidable_pred p], list α → list α × list α
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intro h
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intro h
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: h : Type u
+⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h), partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: h : Type u
+⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h), partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intros
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intros
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases l
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refine (partition_of_nonempty_of_empty_pred p).2
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refine (partition_of_nonempty_of_empty_pred p).2
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_of_nonempty_of_empty_pred'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_of_nonempty_of_empty_pred'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refine [partition_eq_subset, partition_eq_subset]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refine [partition_eq_subset, partition_eq_subset]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_subset'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_subset'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rintro ���a, rfl���
+[try_get_tac_and_capture_result] parse_itactic failed on rintro ���a, rfl���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rintro ���a, rfl���
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm
+[try_get_tac_and_capture_result] parse_itactic failed on simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on simpa [partition] using (filter.partition_eq_right_of_not_lt _).symm
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: ext
+[try_get_tac_and_capture_result] parse_itactic failed on ext
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on ext
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: reflexivity tactic failed, target is not a relation application with the expected property.
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: reflexivity tactic failed, target is not a relation application with the expected property.
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: try { refl }
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: try { refl }
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: tactic state no-op
+POS: none
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: split
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: split
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: constructor tactic failed, target is not an inductive datatype
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: constructor tactic failed, target is not an inductive datatype
+POS: (some ⟨1, 2⟩)
+OLD_STATE: ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),
+    partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[try_candidate] END OF LOOP
+[run_all_beam_candidates] EXITING TRY_CANDIDATE LOOP
+[run_all_beam_candidates] SUCCESSFUL CANDIDATES: [(some (SUCCESS!
+        NEW_STATE: h : Type u
+        ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+            partition p l = (filter p l, filter (not ∘ p) l)
+        VAL: (),
+        (intro h, 0.0501773))),
+ (some (SUCCESS!
+        NEW_STATE: α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l : list α
+        ⊢ partition p l = (filter p l, filter (not ∘ p) l)
+        VAL: (),
+        (intros, 0.0501773)))]
+[bfs_step] SUCCESSFUL CANDIDATES: [(SUCCESS!
+  NEW_STATE: h : Type u
+  ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h), partition p l = (filter p l, filter (not ∘ p) l)
+  VAL: (),
+  (intro h, 0.0501773)),
+ (SUCCESS!
+  NEW_STATE: α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l : list α
+  ⊢ partition p l = (filter p l, filter (not ∘ p) l)
+  VAL: (),
+  (intros, 0.0501773))]
+[bfs_step] NODES BEFORE SORTING: [BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1),
+ BFSNode.mk (α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l : list α
+ ⊢ partition p l = (filter p l, filter (not ∘ p) l) -5018 [intros] 1)]
+[bfs_step] NODES AFTER SORTING: [BFSNode.mk (α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l : list α
+ ⊢ partition p l = (filter p l, filter (not ∘ p) l) -5018 [intros] 1),
+ BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1)]
+DONE FLAG: ff
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l : list α
+ ⊢ partition p l = (filter p l, filter (not ∘ p) l) -5018 [intros] 1),
+ BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1)]
+
+ 
+ 
+ PROMPT: [LN] GOAL α : Type u,	p : α → Prop,	_inst_1 : decidable_pred p,	l : list α	⊢ list.partition p l = (list.filter p l, list.filter (not ∘ p) l) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[openai_api] RAW RESPONSE: {"model": "gptf-neo", "choices": [{"text": "simp [partition]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partition]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp only [partition]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partial_cons, not_nil_iff_partial_cons]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partition_perm]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partition_map]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partition, if_true_iff]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp only [partition_eq_partition, partition_eq_partition]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp [partition, part.fst, part.snd]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "simp only [partition, subset.mem_partial, not_false]", "logprobs": {"token_logprobs": [0.2824949622154236]}}, {"text": "rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw [partition_filter]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_eq_partial_iff", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_partition", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_sub_eq", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw pell_partition", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw [partition, partition_iff, list.partition_iff]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw [partition_of, �� partial_pred (eq_of_nonempty p)]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_eq_append", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_eq", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition_iff_partition", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw partition", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "rw [partition_pred, map_nil_iff_not]", "logprobs": {"token_logprobs": [0.2802826762199402]}}, {"text": "exact part.le_of_nonpos l", "logprobs": {"token_logprobs": [0.07106824219226837]}}, {"text": "exact list.partition.add_le_id (partition.partition_inv p l)", "logprobs": {"token_logprobs": [0.07106824219226837]}}, {"text": "exact part.partition_map_id (part.destruct _)", "logprobs": {"token_logprobs": [0.07106824219226837]}}, {"text": "exact decidable_pred.decode l.map_fun _", "logprobs": {"token_logprobs": [0.07106824219226837]}}, {"text": "cases l", "logprobs": {"token_logprobs": [0.05241822823882103]}}, {"text": "cases le_self", "logprobs": {"token_logprobs": [0.05241822823882103]}}, {"text": "cases l", "logprobs": {"token_logprobs": [0.05241822823882103]}}, {"text": "apply partition.elim", "logprobs": {"token_logprobs": [0.03972192108631134]}}, {"text": "apply partition_or_zero", "logprobs": {"token_logprobs": [0.03972192108631134]}}, {"text": "intros", "logprobs": {"token_logprobs": [0.033018045127391815]}}, {"text": "intro e", "logprobs": {"token_logprobs": [0.033018045127391815]}}, {"text": "ext", "logprobs": {"token_logprobs": [0.021825261414051056]}}, {"text": "have l_finset = (permutations α).partition.map_fun l", "logprobs": {"token_logprobs": [0.021769465878605843]}}, {"text": "rintro h", "logprobs": {"token_logprobs": [0.02149886265397072]}}, {"text": "simpa using ���p, mem, l���", "logprobs": {"token_logprobs": [0.018667280673980713]}}, {"text": "refl", "logprobs": {"token_logprobs": [0.017898263409733772]}}]}
+
+GOT RESPONSE_MSG
+PREDICTIONS: (["simp [partition]",
+  "simp [partition]",
+  "simp only [partition]",
+  "simp [partial_cons, not_nil_iff_partial_cons]",
+  "simp [partition_perm]",
+  "simp [partition_map]",
+  "simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot]",
+  "simp",
+  "simp [partition, if_true_iff]",
+  "simp only [partition_eq_partition, partition_eq_partition]",
+  "simp",
+  "simp [partition, part.fst, part.snd]",
+  "simp",
+  "simp only [partition, subset.mem_partial, not_false]",
+  "rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]",
+  "rw [partition_filter]",
+  "rw partition_eq_partial_iff",
+  "rw partition_partition",
+  "rw partition_sub_eq",
+  "rw pell_partition",
+  "rw [partition, partition_iff, list.partition_iff]",
+  "rw [partition_of, �� partial_pred (eq_of_nonempty p)]",
+  "rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff]",
+  "rw partition_eq_append",
+  "rw partition_eq",
+  "rw partition_iff_partition",
+  "rw partition",
+  "rw [partition_pred, map_nil_iff_not]",
+  "exact part.le_of_nonpos l",
+  "exact list.partition.add_le_id (partition.partition_inv p l)",
+  "exact part.partition_map_id (part.destruct _)",
+  "exact decidable_pred.decode l.map_fun _",
+  "cases l",
+  "cases le_self",
+  "cases l",
+  "apply partition.elim",
+  "apply partition_or_zero",
+  "intros",
+  "intro e",
+  "ext",
+  "have l_finset = (permutations α).partition.map_fun l",
+  "rintro h",
+  "simpa using ���p, mem, l���",
+  "refl"],
+ [0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.0710682,
+  0.0710682,
+  0.0710682,
+  0.0710682,
+  0.0524182,
+  0.0524182,
+  0.0524182,
+  0.0397219,
+  0.0397219,
+  0.033018,
+  0.033018,
+  0.0218253,
+  0.0217695,
+  0.0214989,
+  0.0186673,
+  0.0178983])
+[bfs_step] RESPONSE MSG [["simp [partition]",
+  "simp [partition]",
+  "simp only [partition]",
+  "simp [partial_cons, not_nil_iff_partial_cons]",
+  "simp [partition_perm]",
+  "simp [partition_map]",
+  "simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot]",
+  "simp",
+  "simp [partition, if_true_iff]",
+  "simp only [partition_eq_partition, partition_eq_partition]",
+  "simp",
+  "simp [partition, part.fst, part.snd]",
+  "simp",
+  "simp only [partition, subset.mem_partial, not_false]",
+  "rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]",
+  "rw [partition_filter]",
+  "rw partition_eq_partial_iff",
+  "rw partition_partition",
+  "rw partition_sub_eq",
+  "rw pell_partition",
+  "rw [partition, partition_iff, list.partition_iff]",
+  "rw [partition_of, �� partial_pred (eq_of_nonempty p)]",
+  "rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff]",
+  "rw partition_eq_append",
+  "rw partition_eq",
+  "rw partition_iff_partition",
+  "rw partition",
+  "rw [partition_pred, map_nil_iff_not]",
+  "exact part.le_of_nonpos l",
+  "exact list.partition.add_le_id (partition.partition_inv p l)",
+  "exact part.partition_map_id (part.destruct _)",
+  "exact decidable_pred.decode l.map_fun _",
+  "cases l",
+  "cases le_self",
+  "cases l",
+  "apply partition.elim",
+  "apply partition_or_zero",
+  "intros",
+  "intro e",
+  "ext",
+  "have l_finset = (permutations α).partition.map_fun l",
+  "rintro h",
+  "simpa using ���p, mem, l���",
+  "refl"],
+ [0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.282495,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.280283,
+  0.0710682,
+  0.0710682,
+  0.0710682,
+  0.0710682,
+  0.0524182,
+  0.0524182,
+  0.0524182,
+  0.0397219,
+  0.0397219,
+  0.033018,
+  0.033018,
+  0.0218253,
+  0.0217695,
+  0.0214989,
+  0.0186673,
+  0.0178983]]
+[bfs_step] RUNNING DECODE RESPONSE WITH TAC_TIMEOUT 5000
+[run_proof_search_step] NO GOT DECL 
+[run_all_beam_candidates] DEDUP_UNWRAPPED CANDIDATES: [(simp [partition], 0.282495),
+ (simp only [partition], 0.282495),
+ (simp [partial_cons, not_nil_iff_partial_cons], 0.282495),
+ (simp [partition_perm], 0.282495),
+ (simp [partition_map], 0.282495),
+ (simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot], 0.282495),
+ (simp, 0.282495),
+ (simp [partition, if_true_iff], 0.282495),
+ (simp only [partition_eq_partition, partition_eq_partition], 0.282495),
+ (simp [partition, part.fst, part.snd], 0.282495),
+ (simp only [partition, subset.mem_partial, not_false], 0.282495),
+ (rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition], 0.280283),
+ (rw [partition_filter], 0.280283),
+ (rw partition_eq_partial_iff, 0.280283),
+ (rw partition_partition, 0.280283),
+ (rw partition_sub_eq, 0.280283),
+ (rw pell_partition, 0.280283),
+ (rw [partition, partition_iff, list.partition_iff], 0.280283),
+ (rw [partition_of, �� partial_pred (eq_of_nonempty p)], 0.280283),
+ (rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff], 0.280283),
+ (rw partition_eq_append, 0.280283),
+ (rw partition_eq, 0.280283),
+ (rw partition_iff_partition, 0.280283),
+ (rw partition, 0.280283),
+ (rw [partition_pred, map_nil_iff_not], 0.280283),
+ (exact part.le_of_nonpos l, 0.0710682),
+ (exact list.partition.add_le_id (partition.partition_inv p l), 0.0710682),
+ (exact part.partition_map_id (part.destruct _), 0.0710682),
+ (exact decidable_pred.decode l.map_fun _, 0.0710682),
+ (cases l, 0.0524182),
+ (cases le_self, 0.0524182),
+ (apply partition.elim, 0.0397219),
+ (apply partition_or_zero, 0.0397219),
+ (intros, 0.033018),
+ (intro e, 0.033018),
+ (ext, 0.0218253),
+ (have l_finset = (permutations α).partition.map_fun l, 0.0217695),
+ (rintro h, 0.0214989),
+ (simpa using ���p, mem, l���, 0.0186673),
+ (refl, 0.0178983)]
+[run_all_beam_candidates] CANDIDATES: [(simp [partition], 0.282495),
+ (simp only [partition], 0.282495),
+ (simp [partial_cons, not_nil_iff_partial_cons], 0.282495),
+ (simp [partition_perm], 0.282495),
+ (simp [partition_map], 0.282495),
+ (simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot], 0.282495),
+ (simp, 0.282495),
+ (simp [partition, if_true_iff], 0.282495),
+ (simp only [partition_eq_partition, partition_eq_partition], 0.282495),
+ (simp [partition, part.fst, part.snd], 0.282495),
+ (simp only [partition, subset.mem_partial, not_false], 0.282495),
+ (rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition], 0.280283),
+ (rw [partition_filter], 0.280283),
+ (rw partition_eq_partial_iff, 0.280283),
+ (rw partition_partition, 0.280283),
+ (rw partition_sub_eq, 0.280283),
+ (rw pell_partition, 0.280283),
+ (rw [partition, partition_iff, list.partition_iff], 0.280283),
+ (rw [partition_of, �� partial_pred (eq_of_nonempty p)], 0.280283),
+ (rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff], 0.280283),
+ (rw partition_eq_append, 0.280283),
+ (rw partition_eq, 0.280283),
+ (rw partition_iff_partition, 0.280283),
+ (rw partition, 0.280283),
+ (rw [partition_pred, map_nil_iff_not], 0.280283),
+ (exact part.le_of_nonpos l, 0.0710682),
+ (exact list.partition.add_le_id (partition.partition_inv p l), 0.0710682),
+ (exact part.partition_map_id (part.destruct _), 0.0710682),
+ (exact decidable_pred.decode l.map_fun _, 0.0710682),
+ (cases l, 0.0524182),
+ (cases le_self, 0.0524182),
+ (apply partition.elim, 0.0397219),
+ (apply partition_or_zero, 0.0397219),
+ (intros, 0.033018),
+ (intro e, 0.033018),
+ (ext, 0.0218253),
+ (have l_finset = (permutations α).partition.map_fun l, 0.0217695),
+ (rintro h, 0.0214989),
+ (simpa using ���p, mem, l���, 0.0186673),
+ (refl, 0.0178983)]
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partial_cons, not_nil_iff_partial_cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partial_cons, not_nil_iff_partial_cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partial_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partial_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_perm]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_perm]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_perm'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_perm'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_map]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_map]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_le, subtype.eq_bot, if_true, subtype.iff_le, eq_bot]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_le'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_le'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition, if_true_iff]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition, if_true_iff]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'if_true_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'if_true_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_eq_partition, partition_eq_partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_eq_partition, partition_eq_partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition, part.fst, part.snd]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition, part.fst, part.snd]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.fst'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.fst'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition, subset.mem_partial, not_false]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition, subset.mem_partial, not_false]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'subset.mem_partial'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'subset.mem_partial'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]
+[try_get_tac_and_capture_result] parse_itactic failed on rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rw [��, part_of_eq_iff_partition, part_of_eq_iff_partition]
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_filter]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_filter]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_filter'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_filter'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_eq_partial_iff
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_eq_partial_iff
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partial_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partial_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_sub_eq
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_sub_eq
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_sub_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_sub_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw pell_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw pell_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'pell_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'pell_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition, partition_iff, list.partition_iff]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition, partition_iff, list.partition_iff]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_of, �� partial_pred (eq_of_nonempty p)]
+[try_get_tac_and_capture_result] parse_itactic failed on rw [partition_of, �� partial_pred (eq_of_nonempty p)]
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rw [partition_of, �� partial_pred (eq_of_nonempty p)]
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition.cons hl, decidable_pred, partition.partition_of_nonempty_iff]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'hl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'hl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_eq_append
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_eq_append
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_append'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_append'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_eq
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_eq
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_iff_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_iff_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: failed
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_pred, map_nil_iff_not]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_pred, map_nil_iff_not]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_pred'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_pred'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact part.le_of_nonpos l
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact part.le_of_nonpos l
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.le_of_nonpos'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.le_of_nonpos'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact list.partition.add_le_id (partition.partition_inv p l)
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact list.partition.add_le_id (partition.partition_inv p l)
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact part.partition_map_id (part.destruct _)
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact part.partition_map_id (part.destruct _)
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.partition_map_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.partition_map_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact decidable_pred.decode l.map_fun _
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact decidable_pred.decode l.map_fun _
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'decidable_pred.decode'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'decidable_pred.decode'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases l
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases le_self
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases le_self
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'le_self'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'le_self'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply partition.elim
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply partition.elim
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply partition_or_zero
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply partition_or_zero
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_or_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_or_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intros
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intros
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+VAL: ()
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: tactic state no-op
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intro e
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intro e
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: intro tactic failed, Pi/let expression expected
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: intro tactic failed, Pi/let expression expected
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: ext
+[try_get_tac_and_capture_result] parse_itactic failed on ext
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on ext
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: have l_finset = (permutations α).partition.map_fun l
+[try_get_tac_and_capture_result] parse_itactic failed on have l_finset = (permutations α).partition.map_fun l
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on have l_finset = (permutations α).partition.map_fun l
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rintro h
+[try_get_tac_and_capture_result] parse_itactic failed on rintro h
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rintro h
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simpa using ���p, mem, l���
+[try_get_tac_and_capture_result] parse_itactic failed on simpa using ���p, mem, l���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on simpa using ���p, mem, l���
+POS: none
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  partition p l = (filter p l, filter (not ∘ p) l)
+with
+  ?m_2 = ?m_2
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  partition p l = (filter p l, filter (not ∘ p) l)
+with
+  ?m_2 = ?m_2
+POS: (some ⟨1, 2⟩)
+OLD_STATE: α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l : list α
+⊢ partition p l = (filter p l, filter (not ∘ p) l)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[try_candidate] END OF LOOP
+[run_all_beam_candidates] EXITING TRY_CANDIDATE LOOP
+[run_all_beam_candidates] SUCCESSFUL CANDIDATES: [(some (SUCCESS!
+        NEW_STATE: 2 goals
+        case list.nil
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p
+        ⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+        
+        case list.cons
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l_hd : α,
+        l_tl : list α
+        ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+        VAL: (),
+        (cases l, 0.0524182)))]
+[bfs_step] SUCCESSFUL CANDIDATES: [(SUCCESS!
+  NEW_STATE: 2 goals
+  case list.nil
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p
+  ⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+  
+  case list.cons
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l_hd : α,
+  l_tl : list α
+  ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+  VAL: (),
+  (cases l, 0.0524182))]
+[bfs_step] NODES BEFORE SORTING: [BFSNode.mk (2 goals
+ case list.nil
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p
+ ⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+ 
+ case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -10260 [intros,
+  cases l] 2)]
+[bfs_step] NODES AFTER SORTING: [BFSNode.mk (2 goals
+ case list.nil
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p
+ ⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+ 
+ case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -10260 [intros,
+  cases l] 2)]
+DONE FLAG: ff
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1),
+ BFSNode.mk (2 goals
+ case list.nil
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p
+ ⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+ 
+ case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -10260 [intros,
+  cases l] 2)]
+
+ 
+ 
+ PROMPT: [LN] GOAL case list.nil	α : Type u,	p : α → Prop,	_inst_1 : decidable_pred p	⊢ list.partition p list.nil = (list.filter p list.nil, list.filter (not ∘ p) list.nil)		case list.cons	α : Type u,	p : α → Prop,	_inst_1 : decidable_pred p,	l_hd : α,	l_tl : list α	⊢ list.partition p (l_hd :: l_tl) = (list.filter p (l_hd :: l_tl), list.filter (not ∘ p) (l_hd :: l_tl)) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[openai_api] RAW RESPONSE: {"model": "gptf-neo", "choices": [{"text": "rw part.partition_filter_eq_nil", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw ��partition", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw partition_append_left", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw [partition_eq_zero]", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil]", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)]", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw partition_filter �� partition_filter_injective", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw [partition_cons, append_cons, filter_iff_empty]", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw part.cons_filter_part", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "rw [partition p, not_false, map_nil_mk_nil]", "logprobs": {"token_logprobs": [0.24656854569911957]}}, {"text": "simp only [partition, list.cons, part.cons]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp [list.cons]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp only [partition_succ_eq_empty_iff_iff]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp [partition_cons, list.cons]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp [l_hd :: l_tl]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp only [cons, partial_filter_comp hd, mem_cons]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp only [cons, nonempty_nil_iff, map_one, nat.partition_le]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp [partition_map_cons, list.cons.map, id_succ]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp only [partition_iff.cons, decidable.cons]", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "simp *", "logprobs": {"token_logprobs": [0.23344551026821136]}}, {"text": "exact ���l_hd, l_tl, hl_d, hl_d���", "logprobs": {"token_logprobs": [0.09295957535505295]}}, {"text": "exact mem_cons_iff_cons hd", "logprobs": {"token_logprobs": [0.09295957535505295]}}, {"text": "exact partition_partition_iff_partition", "logprobs": {"token_logprobs": [0.09295957535505295]}}, {"text": "exact ���l_hd :: l_tl, _���", "logprobs": {"token_logprobs": [0.09295957535505295]}}, {"text": "exact_mod_cast l_hd :: l_tl", "logprobs": {"token_logprobs": [0.09295957535505295]}}, {"text": "cases l_tl with ltl", "logprobs": {"token_logprobs": [0.07079359889030457]}}, {"text": "cases l_tl", "logprobs": {"token_logprobs": [0.07079359889030457]}}, {"text": "cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl", "logprobs": {"token_logprobs": [0.07079359889030457]}}, {"text": "cases hl_tl : list.cons (list.cons p l_hd :: l_tl)", "logprobs": {"token_logprobs": [0.07079359889030457]}}, {"text": "apply filter.eq_filter {list.of_eq _}", "logprobs": {"token_logprobs": [0.045069754123687744]}}, {"text": "apply le_order", "logprobs": {"token_logprobs": [0.045069754123687744]}}, {"text": "intros", "logprobs": {"token_logprobs": [0.036694884300231934]}}, {"text": "intros", "logprobs": {"token_logprobs": [0.036694884300231934]}}, {"text": "refine ���λ _ _, _��� := l_hd :: l_tl", "logprobs": {"token_logprobs": [0.034435905516147614]}}, {"text": "have : l_tl = list.cons", "logprobs": {"token_logprobs": [0.03349951654672623]}}, {"text": "have hn : l_hd :: hp :: l_tl = list.cons", "logprobs": {"token_logprobs": [0.03349951654672623]}}, {"text": "rintro ���_���", "logprobs": {"token_logprobs": [0.024519991129636765]}}, {"text": "refl", "logprobs": {"token_logprobs": [0.020344002172350883]}}, {"text": "ext", "logprobs": {"token_logprobs": [0.018989982083439827]}}, {"text": "simpa using l_hd :: l_tl, mem_partition", "logprobs": {"token_logprobs": [0.018468741327524185]}}, {"text": "try { refl }", "logprobs": {"token_logprobs": [0.01567648909986019]}}, {"text": "split", "logprobs": {"token_logprobs": [0.010335393249988556]}}]}
+
+GOT RESPONSE_MSG
+PREDICTIONS: (["rw part.partition_filter_eq_nil",
+  "rw ��partition",
+  "rw partition_append_left",
+  "rw [partition_eq_zero]",
+  "rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil]",
+  "rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)]",
+  "rw partition_filter �� partition_filter_injective",
+  "rw [partition_cons, append_cons, filter_iff_empty]",
+  "rw part.cons_filter_part",
+  "rw [partition p, not_false, map_nil_mk_nil]",
+  "simp only [partition, list.cons, part.cons]",
+  "simp [list.cons]",
+  "simp only [partition_succ_eq_empty_iff_iff]",
+  "simp [partition_cons, list.cons]",
+  "simp [l_hd :: l_tl]",
+  "simp only [cons, partial_filter_comp hd, mem_cons]",
+  "simp only [cons, nonempty_nil_iff, map_one, nat.partition_le]",
+  "simp",
+  "simp [partition_map_cons, list.cons.map, id_succ]",
+  "simp only [partition_iff.cons, decidable.cons]",
+  "simp *",
+  "exact ���l_hd, l_tl, hl_d, hl_d���",
+  "exact mem_cons_iff_cons hd",
+  "exact partition_partition_iff_partition",
+  "exact ���l_hd :: l_tl, _���",
+  "exact_mod_cast l_hd :: l_tl",
+  "cases l_tl with ltl",
+  "cases l_tl",
+  "cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl",
+  "cases hl_tl : list.cons (list.cons p l_hd :: l_tl)",
+  "apply filter.eq_filter {list.of_eq _}",
+  "apply le_order",
+  "intros",
+  "intros",
+  "refine ���λ _ _, _��� := l_hd :: l_tl",
+  "have : l_tl = list.cons",
+  "have hn : l_hd :: hp :: l_tl = list.cons",
+  "rintro ���_���",
+  "refl",
+  "ext",
+  "simpa using l_hd :: l_tl, mem_partition",
+  "try { refl }",
+  "split"],
+ [0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0707936,
+  0.0707936,
+  0.0707936,
+  0.0707936,
+  0.0450698,
+  0.0450698,
+  0.0366949,
+  0.0366949,
+  0.0344359,
+  0.0334995,
+  0.0334995,
+  0.02452,
+  0.020344,
+  0.01899,
+  0.0184687,
+  0.0156765,
+  0.0103354])
+[bfs_step] RESPONSE MSG [["rw part.partition_filter_eq_nil",
+  "rw ��partition",
+  "rw partition_append_left",
+  "rw [partition_eq_zero]",
+  "rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil]",
+  "rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)]",
+  "rw partition_filter �� partition_filter_injective",
+  "rw [partition_cons, append_cons, filter_iff_empty]",
+  "rw part.cons_filter_part",
+  "rw [partition p, not_false, map_nil_mk_nil]",
+  "simp only [partition, list.cons, part.cons]",
+  "simp [list.cons]",
+  "simp only [partition_succ_eq_empty_iff_iff]",
+  "simp [partition_cons, list.cons]",
+  "simp [l_hd :: l_tl]",
+  "simp only [cons, partial_filter_comp hd, mem_cons]",
+  "simp only [cons, nonempty_nil_iff, map_one, nat.partition_le]",
+  "simp",
+  "simp [partition_map_cons, list.cons.map, id_succ]",
+  "simp only [partition_iff.cons, decidable.cons]",
+  "simp *",
+  "exact ���l_hd, l_tl, hl_d, hl_d���",
+  "exact mem_cons_iff_cons hd",
+  "exact partition_partition_iff_partition",
+  "exact ���l_hd :: l_tl, _���",
+  "exact_mod_cast l_hd :: l_tl",
+  "cases l_tl with ltl",
+  "cases l_tl",
+  "cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl",
+  "cases hl_tl : list.cons (list.cons p l_hd :: l_tl)",
+  "apply filter.eq_filter {list.of_eq _}",
+  "apply le_order",
+  "intros",
+  "intros",
+  "refine ���λ _ _, _��� := l_hd :: l_tl",
+  "have : l_tl = list.cons",
+  "have hn : l_hd :: hp :: l_tl = list.cons",
+  "rintro ���_���",
+  "refl",
+  "ext",
+  "simpa using l_hd :: l_tl, mem_partition",
+  "try { refl }",
+  "split"],
+ [0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.246569,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.233446,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0929596,
+  0.0707936,
+  0.0707936,
+  0.0707936,
+  0.0707936,
+  0.0450698,
+  0.0450698,
+  0.0366949,
+  0.0366949,
+  0.0344359,
+  0.0334995,
+  0.0334995,
+  0.02452,
+  0.020344,
+  0.01899,
+  0.0184687,
+  0.0156765,
+  0.0103354]]
+[bfs_step] RUNNING DECODE RESPONSE WITH TAC_TIMEOUT 5000
+[run_proof_search_step] NO GOT DECL 
+[run_all_beam_candidates] DEDUP_UNWRAPPED CANDIDATES: [(rw part.partition_filter_eq_nil, 0.246569),
+ (rw ��partition, 0.246569),
+ (rw partition_append_left, 0.246569),
+ (rw [partition_eq_zero], 0.246569),
+ (rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil], 0.246569),
+ (rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)], 0.246569),
+ (rw partition_filter �� partition_filter_injective, 0.246569),
+ (rw [partition_cons, append_cons, filter_iff_empty], 0.246569),
+ (rw part.cons_filter_part, 0.246569),
+ (rw [partition p, not_false, map_nil_mk_nil], 0.246569),
+ (simp only [partition, list.cons, part.cons], 0.233446),
+ (simp [list.cons], 0.233446),
+ (simp only [partition_succ_eq_empty_iff_iff], 0.233446),
+ (simp [partition_cons, list.cons], 0.233446),
+ (simp [l_hd :: l_tl], 0.233446),
+ (simp only [cons, partial_filter_comp hd, mem_cons], 0.233446),
+ (simp only [cons, nonempty_nil_iff, map_one, nat.partition_le], 0.233446),
+ (simp, 0.233446),
+ (simp [partition_map_cons, list.cons.map, id_succ], 0.233446),
+ (simp only [partition_iff.cons, decidable.cons], 0.233446),
+ (simp *, 0.233446),
+ (exact ���l_hd, l_tl, hl_d, hl_d���, 0.0929596),
+ (exact mem_cons_iff_cons hd, 0.0929596),
+ (exact partition_partition_iff_partition, 0.0929596),
+ (exact ���l_hd :: l_tl, _���, 0.0929596),
+ (exact_mod_cast l_hd :: l_tl, 0.0929596),
+ (cases l_tl with ltl, 0.0707936),
+ (cases l_tl, 0.0707936),
+ (cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl, 0.0707936),
+ (cases hl_tl : list.cons (list.cons p l_hd :: l_tl), 0.0707936),
+ (apply filter.eq_filter {list.of_eq _}, 0.0450698),
+ (apply le_order, 0.0450698),
+ (intros, 0.0366949),
+ (refine ���λ _ _, _��� := l_hd :: l_tl, 0.0344359),
+ (have : l_tl = list.cons, 0.0334995),
+ (have hn : l_hd :: hp :: l_tl = list.cons, 0.0334995),
+ (rintro ���_���, 0.02452),
+ (refl, 0.020344),
+ (ext, 0.01899),
+ (simpa using l_hd :: l_tl, mem_partition, 0.0184687),
+ (try { refl }, 0.0156765),
+ (split, 0.0103354)]
+[run_all_beam_candidates] CANDIDATES: [(rw part.partition_filter_eq_nil, 0.246569),
+ (rw ��partition, 0.246569),
+ (rw partition_append_left, 0.246569),
+ (rw [partition_eq_zero], 0.246569),
+ (rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil], 0.246569),
+ (rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)], 0.246569),
+ (rw partition_filter �� partition_filter_injective, 0.246569),
+ (rw [partition_cons, append_cons, filter_iff_empty], 0.246569),
+ (rw part.cons_filter_part, 0.246569),
+ (rw [partition p, not_false, map_nil_mk_nil], 0.246569),
+ (simp only [partition, list.cons, part.cons], 0.233446),
+ (simp [list.cons], 0.233446),
+ (simp only [partition_succ_eq_empty_iff_iff], 0.233446),
+ (simp [partition_cons, list.cons], 0.233446),
+ (simp [l_hd :: l_tl], 0.233446),
+ (simp only [cons, partial_filter_comp hd, mem_cons], 0.233446),
+ (simp only [cons, nonempty_nil_iff, map_one, nat.partition_le], 0.233446),
+ (simp, 0.233446),
+ (simp [partition_map_cons, list.cons.map, id_succ], 0.233446),
+ (simp only [partition_iff.cons, decidable.cons], 0.233446),
+ (simp *, 0.233446),
+ (exact ���l_hd, l_tl, hl_d, hl_d���, 0.0929596),
+ (exact mem_cons_iff_cons hd, 0.0929596),
+ (exact partition_partition_iff_partition, 0.0929596),
+ (exact ���l_hd :: l_tl, _���, 0.0929596),
+ (exact_mod_cast l_hd :: l_tl, 0.0929596),
+ (cases l_tl with ltl, 0.0707936),
+ (cases l_tl, 0.0707936),
+ (cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl, 0.0707936),
+ (cases hl_tl : list.cons (list.cons p l_hd :: l_tl), 0.0707936),
+ (apply filter.eq_filter {list.of_eq _}, 0.0450698),
+ (apply le_order, 0.0450698),
+ (intros, 0.0366949),
+ (refine ���λ _ _, _��� := l_hd :: l_tl, 0.0344359),
+ (have : l_tl = list.cons, 0.0334995),
+ (have hn : l_hd :: hp :: l_tl = list.cons, 0.0334995),
+ (rintro ���_���, 0.02452),
+ (refl, 0.020344),
+ (ext, 0.01899),
+ (simpa using l_hd :: l_tl, mem_partition, 0.0184687),
+ (try { refl }, 0.0156765),
+ (split, 0.0103354)]
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw part.partition_filter_eq_nil
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw part.partition_filter_eq_nil
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.partition_filter_eq_nil'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.partition_filter_eq_nil'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw ��partition
+[try_get_tac_and_capture_result] parse_itactic failed on rw ��partition
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rw ��partition
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_append_left
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_append_left
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_append_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_append_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_zero]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_zero]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition.cons_comm, partition.cons_nil_iff, part.cons_nil]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_cons, prod.bind_singleton (pred p, l_hd :: l_tl)]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_filter �� partition_filter_injective
+[try_get_tac_and_capture_result] parse_itactic failed on rw partition_filter �� partition_filter_injective
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rw partition_filter �� partition_filter_injective
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_cons, append_cons, filter_iff_empty]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_cons, append_cons, filter_iff_empty]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw part.cons_filter_part
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw part.cons_filter_part
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.cons_filter_part'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.cons_filter_part'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition p, not_false, map_nil_mk_nil]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition p, not_false, map_nil_mk_nil]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: rewrite tactic failed, lemma is not an equality nor a iff
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: rewrite tactic failed, lemma is not an equality nor a iff
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition, list.cons, part.cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition, list.cons, part.cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [list.cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [list.cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_succ_eq_empty_iff_iff]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_succ_eq_empty_iff_iff]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_succ_eq_empty_iff_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_succ_eq_empty_iff_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_cons, list.cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_cons, list.cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [l_hd :: l_tl]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [l_hd :: l_tl]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [cons, partial_filter_comp hd, mem_cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [cons, partial_filter_comp hd, mem_cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [cons, nonempty_nil_iff, map_one, nat.partition_le]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [cons, nonempty_nil_iff, map_one, nat.partition_le]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid simplification lemma 'list.cons' (use command 'set_option trace.simp_lemmas true' for more details)
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_map_cons, list.cons.map, id_succ]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_map_cons, list.cons.map, id_succ]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_map_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_map_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_iff.cons, decidable.cons]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_iff.cons, decidable.cons]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff.cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff.cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp *
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp *
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact ���l_hd, l_tl, hl_d, hl_d���
+[try_get_tac_and_capture_result] parse_itactic failed on exact ���l_hd, l_tl, hl_d, hl_d���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on exact ���l_hd, l_tl, hl_d, hl_d���
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact mem_cons_iff_cons hd
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact mem_cons_iff_cons hd
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'mem_cons_iff_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'mem_cons_iff_cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact partition_partition_iff_partition
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact partition_partition_iff_partition
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition_iff_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition_iff_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact ���l_hd :: l_tl, _���
+[try_get_tac_and_capture_result] parse_itactic failed on exact ���l_hd :: l_tl, _���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on exact ���l_hd :: l_tl, _���
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact_mod_cast l_hd :: l_tl
+[try_get_tac_and_capture_result] parse_itactic failed on exact_mod_cast l_hd :: l_tl
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on exact_mod_cast l_hd :: l_tl
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l_tl with ltl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases l_tl with ltl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l_tl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases l_tl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases le_trans_of_map p l_hd (list.partition p.nil) _ with l_tl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'le_trans_of_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'le_trans_of_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases hl_tl : list.cons (list.cons p l_hd :: l_tl)
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases hl_tl : list.cons (list.cons p l_hd :: l_tl)
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply filter.eq_filter {list.of_eq _}
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply filter.eq_filter {list.of_eq _}
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  filter
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  filter
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply le_order
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply le_order
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'le_order'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'le_order'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intros
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intros
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: tactic state no-op
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refine ���λ _ _, _��� := l_hd :: l_tl
+[try_get_tac_and_capture_result] parse_itactic failed on refine ���λ _ _, _��� := l_hd :: l_tl
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on refine ���λ _ _, _��� := l_hd :: l_tl
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: have : l_tl = list.cons
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: have : l_tl = list.cons
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_tl'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: have hn : l_hd :: hp :: l_tl = list.cons
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: have hn : l_hd :: hp :: l_tl = list.cons
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'l_hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rintro ���_���
+[try_get_tac_and_capture_result] parse_itactic failed on rintro ���_���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rintro ���_���
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refl
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: ext
+[try_get_tac_and_capture_result] parse_itactic failed on ext
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on ext
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simpa using l_hd :: l_tl, mem_partition
+[try_get_tac_and_capture_result] parse_itactic failed on simpa using l_hd :: l_tl, mem_partition
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on simpa using l_hd :: l_tl, mem_partition
+POS: none
+OLD_STATE: 2 goals
+case list.nil
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p
+⊢ partition p nil = (filter p nil, filter (not ∘ p) nil)
+
+case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: try { refl }
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: try { refl }
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: split
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: split
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[try_candidate] END OF LOOP
+[run_all_beam_candidates] EXITING TRY_CANDIDATE LOOP
+[run_all_beam_candidates] SUCCESSFUL CANDIDATES: [(some (SUCCESS!
+        NEW_STATE: case list.cons
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l_hd : α,
+        l_tl : list α
+        ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+        VAL: (),
+        (refl, 0.020344))),
+ (some (SUCCESS!
+        NEW_STATE: case list.cons
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l_hd : α,
+        l_tl : list α
+        ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+        VAL: (),
+        (try { refl }, 0.0156765))),
+ (some (SUCCESS!
+        NEW_STATE: case list.cons
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l_hd : α,
+        l_tl : list α
+        ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+        VAL: (),
+        (split, 0.0103354)))]
+[bfs_step] SUCCESSFUL CANDIDATES: [(SUCCESS!
+  NEW_STATE: case list.cons
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l_hd : α,
+  l_tl : list α
+  ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+  VAL: (),
+  (refl, 0.020344)),
+ (SUCCESS!
+  NEW_STATE: case list.cons
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l_hd : α,
+  l_tl : list α
+  ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+  VAL: (),
+  (try { refl }, 0.0156765)),
+ (SUCCESS!
+  NEW_STATE: case list.cons
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l_hd : α,
+  l_tl : list α
+  ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+  VAL: (),
+  (split, 0.0103354))]
+[bfs_step] NODES BEFORE SORTING: [BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -12295 [intros,
+  cases l,
+  refl] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11828 [intros,
+  cases l,
+  try { refl }] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11294 [intros,
+  cases l,
+  split] 3)]
+[bfs_step] NODES AFTER SORTING: [BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -12295 [intros,
+  cases l,
+  refl] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11828 [intros,
+  cases l,
+  try { refl }] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11294 [intros,
+  cases l,
+  split] 3)]
+DONE FLAG: ff
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11294 [intros,
+  cases l,
+  split] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11828 [intros,
+  cases l,
+  try { refl }] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -12295 [intros,
+  cases l,
+  refl] 3)]
+
+ 
+ 
+ PROMPT: [LN] GOAL case list.cons	α : Type u,	p : α → Prop,	_inst_1 : decidable_pred p,	l_hd : α,	l_tl : list α	⊢ list.partition p (l_hd :: l_tl) = (list.filter p (l_hd :: l_tl), list.filter (not ∘ p) (l_hd :: l_tl)) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[openai_api] RAW RESPONSE: {"model": "gptf-neo", "choices": [{"text": "rw partition_add", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq,partition_sum,partition_nat]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_seq]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_apply, partition_apply, partition_apply]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_partial_eq, partial_eq_partial_eq]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_partition_of_add_of_not_le_of_not]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw partition.partition_partial_seq", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_partition_eq]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw partition_iff", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_partition_map, partition_map]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_partition_iff_left, partition_iff_right]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_comp, partition_comp]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [partition_eq_some_iff, partition_eq_some_pow]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "rw [nat.partition_nat p l_tl]", "logprobs": {"token_logprobs": [0.32102420926094055]}}, {"text": "simp only [partition_id _ _, p, list.map_one]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp [partition_assoc]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp [partition, nat_pos]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp [distrib_zero]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp [partition_partition]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "simp [partition]", "logprobs": {"token_logprobs": [0.24714453518390656]}}, {"text": "exact subsingleton.partial_le_of_lt l_hd.mpr l_tl", "logprobs": {"token_logprobs": [0.07333835959434509]}}, {"text": "exact hd _ l_hd l_hd_eq_partition_iff", "logprobs": {"token_logprobs": [0.07333835959434509]}}, {"text": "exact part.cons _ _", "logprobs": {"token_logprobs": [0.07333835959434509]}}, {"text": "exact part.of_part _ _ _", "logprobs": {"token_logprobs": [0.07333835959434509]}}, {"text": "cases l_tl with ���rfl, rfl���", "logprobs": {"token_logprobs": [0.043451543897390366]}}, {"text": "cases l_hd", "logprobs": {"token_logprobs": [0.043451543897390366]}}, {"text": "apply Partition.of_left", "logprobs": {"token_logprobs": [0.03575998917222023]}}, {"text": "apply_rules", "logprobs": {"token_logprobs": [0.03575998917222023]}}, {"text": "intros h", "logprobs": {"token_logprobs": [0.030984075739979744]}}, {"text": "intros_l hs", "logprobs": {"token_logprobs": [0.030984075739979744]}}, {"text": "rintros l_hd l_tl", "logprobs": {"token_logprobs": [0.02334602177143097]}}, {"text": "ext", "logprobs": {"token_logprobs": [0.021213941276073456]}}, {"text": "simpa using eq_of_le _ _ _", "logprobs": {"token_logprobs": [0.02102855034172535]}}, {"text": "refl", "logprobs": {"token_logprobs": [0.016232628375291824]}}, {"text": "try { refl }", "logprobs": {"token_logprobs": [0.01105508953332901]}}]}
+
+GOT RESPONSE_MSG
+PREDICTIONS: (["rw partition_add",
+  "rw [partition_eq,partition_sum,partition_nat]",
+  "rw [partition_seq]",
+  "rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)]",
+  "rw [partition_apply, partition_apply, partition_apply]",
+  "rw [partition_eq_partial_eq, partial_eq_partial_eq]",
+  "rw [partition_eq_partition_of_add_of_not_le_of_not]",
+  "rw partition.partition_partial_seq",
+  "rw [partition_eq_partition_eq]",
+  "rw partition_iff",
+  "rw [partition_eq_partition_map, partition_map]",
+  "rw [partition_eq_partition_iff_left, partition_iff_right]",
+  "rw [partition_comp, partition_comp]",
+  "rw [partition_eq_some_iff, partition_eq_some_pow]",
+  "rw [nat.partition_nat p l_tl]",
+  "simp only [partition_id _ _, p, list.map_one]",
+  "simp [partition_assoc]",
+  "simp",
+  "simp [partition, nat_pos]",
+  "simp [distrib_zero]",
+  "simp",
+  "simp [partition_partition]",
+  "simp [partition]",
+  "exact subsingleton.partial_le_of_lt l_hd.mpr l_tl",
+  "exact hd _ l_hd l_hd_eq_partition_iff",
+  "exact part.cons _ _",
+  "exact part.of_part _ _ _",
+  "cases l_tl with ���rfl, rfl���",
+  "cases l_hd",
+  "apply Partition.of_left",
+  "apply_rules",
+  "intros h",
+  "intros_l hs",
+  "rintros l_hd l_tl",
+  "ext",
+  "simpa using eq_of_le _ _ _",
+  "refl",
+  "try { refl }"],
+ [0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.0733384,
+  0.0733384,
+  0.0733384,
+  0.0733384,
+  0.0434515,
+  0.0434515,
+  0.03576,
+  0.03576,
+  0.0309841,
+  0.0309841,
+  0.023346,
+  0.0212139,
+  0.0210286,
+  0.0162326,
+  0.0110551])
+[bfs_step] RESPONSE MSG [["rw partition_add",
+  "rw [partition_eq,partition_sum,partition_nat]",
+  "rw [partition_seq]",
+  "rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)]",
+  "rw [partition_apply, partition_apply, partition_apply]",
+  "rw [partition_eq_partial_eq, partial_eq_partial_eq]",
+  "rw [partition_eq_partition_of_add_of_not_le_of_not]",
+  "rw partition.partition_partial_seq",
+  "rw [partition_eq_partition_eq]",
+  "rw partition_iff",
+  "rw [partition_eq_partition_map, partition_map]",
+  "rw [partition_eq_partition_iff_left, partition_iff_right]",
+  "rw [partition_comp, partition_comp]",
+  "rw [partition_eq_some_iff, partition_eq_some_pow]",
+  "rw [nat.partition_nat p l_tl]",
+  "simp only [partition_id _ _, p, list.map_one]",
+  "simp [partition_assoc]",
+  "simp",
+  "simp [partition, nat_pos]",
+  "simp [distrib_zero]",
+  "simp",
+  "simp [partition_partition]",
+  "simp [partition]",
+  "exact subsingleton.partial_le_of_lt l_hd.mpr l_tl",
+  "exact hd _ l_hd l_hd_eq_partition_iff",
+  "exact part.cons _ _",
+  "exact part.of_part _ _ _",
+  "cases l_tl with ���rfl, rfl���",
+  "cases l_hd",
+  "apply Partition.of_left",
+  "apply_rules",
+  "intros h",
+  "intros_l hs",
+  "rintros l_hd l_tl",
+  "ext",
+  "simpa using eq_of_le _ _ _",
+  "refl",
+  "try { refl }"],
+ [0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.321024,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.247145,
+  0.0733384,
+  0.0733384,
+  0.0733384,
+  0.0733384,
+  0.0434515,
+  0.0434515,
+  0.03576,
+  0.03576,
+  0.0309841,
+  0.0309841,
+  0.023346,
+  0.0212139,
+  0.0210286,
+  0.0162326,
+  0.0110551]]
+[bfs_step] RUNNING DECODE RESPONSE WITH TAC_TIMEOUT 5000
+[run_proof_search_step] NO GOT DECL 
+[run_all_beam_candidates] DEDUP_UNWRAPPED CANDIDATES: [(rw partition_add, 0.321024),
+ (rw [partition_eq,partition_sum,partition_nat], 0.321024),
+ (rw [partition_seq], 0.321024),
+ (rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)], 0.321024),
+ (rw [partition_apply, partition_apply, partition_apply], 0.321024),
+ (rw [partition_eq_partial_eq, partial_eq_partial_eq], 0.321024),
+ (rw [partition_eq_partition_of_add_of_not_le_of_not], 0.321024),
+ (rw partition.partition_partial_seq, 0.321024),
+ (rw [partition_eq_partition_eq], 0.321024),
+ (rw partition_iff, 0.321024),
+ (rw [partition_eq_partition_map, partition_map], 0.321024),
+ (rw [partition_eq_partition_iff_left, partition_iff_right], 0.321024),
+ (rw [partition_comp, partition_comp], 0.321024),
+ (rw [partition_eq_some_iff, partition_eq_some_pow], 0.321024),
+ (rw [nat.partition_nat p l_tl], 0.321024),
+ (simp only [partition_id _ _, p, list.map_one], 0.247145),
+ (simp [partition_assoc], 0.247145),
+ (simp, 0.247145),
+ (simp [partition, nat_pos], 0.247145),
+ (simp [distrib_zero], 0.247145),
+ (simp [partition_partition], 0.247145),
+ (simp [partition], 0.247145),
+ (exact subsingleton.partial_le_of_lt l_hd.mpr l_tl, 0.0733384),
+ (exact hd _ l_hd l_hd_eq_partition_iff, 0.0733384),
+ (exact part.cons _ _, 0.0733384),
+ (exact part.of_part _ _ _, 0.0733384),
+ (cases l_tl with ���rfl, rfl���, 0.0434515),
+ (cases l_hd, 0.0434515),
+ (apply Partition.of_left, 0.03576),
+ (apply_rules, 0.03576),
+ (intros h, 0.0309841),
+ (intros_l hs, 0.0309841),
+ (rintros l_hd l_tl, 0.023346),
+ (ext, 0.0212139),
+ (simpa using eq_of_le _ _ _, 0.0210286),
+ (refl, 0.0162326),
+ (try { refl }, 0.0110551)]
+[run_all_beam_candidates] CANDIDATES: [(rw partition_add, 0.321024),
+ (rw [partition_eq,partition_sum,partition_nat], 0.321024),
+ (rw [partition_seq], 0.321024),
+ (rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)], 0.321024),
+ (rw [partition_apply, partition_apply, partition_apply], 0.321024),
+ (rw [partition_eq_partial_eq, partial_eq_partial_eq], 0.321024),
+ (rw [partition_eq_partition_of_add_of_not_le_of_not], 0.321024),
+ (rw partition.partition_partial_seq, 0.321024),
+ (rw [partition_eq_partition_eq], 0.321024),
+ (rw partition_iff, 0.321024),
+ (rw [partition_eq_partition_map, partition_map], 0.321024),
+ (rw [partition_eq_partition_iff_left, partition_iff_right], 0.321024),
+ (rw [partition_comp, partition_comp], 0.321024),
+ (rw [partition_eq_some_iff, partition_eq_some_pow], 0.321024),
+ (rw [nat.partition_nat p l_tl], 0.321024),
+ (simp only [partition_id _ _, p, list.map_one], 0.247145),
+ (simp [partition_assoc], 0.247145),
+ (simp, 0.247145),
+ (simp [partition, nat_pos], 0.247145),
+ (simp [distrib_zero], 0.247145),
+ (simp [partition_partition], 0.247145),
+ (simp [partition], 0.247145),
+ (exact subsingleton.partial_le_of_lt l_hd.mpr l_tl, 0.0733384),
+ (exact hd _ l_hd l_hd_eq_partition_iff, 0.0733384),
+ (exact part.cons _ _, 0.0733384),
+ (exact part.of_part _ _ _, 0.0733384),
+ (cases l_tl with ���rfl, rfl���, 0.0434515),
+ (cases l_hd, 0.0434515),
+ (apply Partition.of_left, 0.03576),
+ (apply_rules, 0.03576),
+ (intros h, 0.0309841),
+ (intros_l hs, 0.0309841),
+ (rintros l_hd l_tl, 0.023346),
+ (ext, 0.0212139),
+ (simpa using eq_of_le _ _ _, 0.0210286),
+ (refl, 0.0162326),
+ (try { refl }, 0.0110551)]
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_add
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_add
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_add'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_add'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq,partition_sum,partition_nat]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq,partition_sum,partition_nat]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_seq]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_seq]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_seq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_seq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_id, or_of_iff_or_or (partition_id.of_iff_or _)]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_apply, partition_apply, partition_apply]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_apply, partition_apply, partition_apply]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_apply'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_apply'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partial_eq, partial_eq_partial_eq]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partial_eq, partial_eq_partial_eq]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partial_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partial_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partition_of_add_of_not_le_of_not]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partition_of_add_of_not_le_of_not]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_of_add_of_not_le_of_not'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_of_add_of_not_le_of_not'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition.partition_partial_seq
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition.partition_partial_seq
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid field notation, type is not of the form (C ...) where C is a constant
+  partition
+has type
+  Π (p : ?m_1 → Prop) [_inst_1 : decidable_pred p], list ?m_1 → list ?m_1 × list ?m_1
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partition_eq]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partition_eq]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_eq'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw partition_iff
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw partition_iff
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partition_map, partition_map]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partition_map, partition_map]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_map'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_partition_iff_left, partition_iff_right]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_partition_iff_left, partition_iff_right]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_iff_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_partition_iff_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_comp, partition_comp]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_comp, partition_comp]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_comp'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_comp'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [partition_eq_some_iff, partition_eq_some_pow]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [partition_eq_some_iff, partition_eq_some_pow]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_some_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_eq_some_iff'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rw [nat.partition_nat p l_tl]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: rw [nat.partition_nat p l_tl]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'nat.partition_nat'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'nat.partition_nat'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp only [partition_id _ _, p, list.map_one]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp only [partition_id _ _, p, list.map_one]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_id'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_assoc]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_assoc]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_assoc'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_assoc'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: simplify tactic failed to simplify
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition, nat_pos]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition, nat_pos]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'nat_pos'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'nat_pos'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [distrib_zero]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [distrib_zero]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'distrib_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'distrib_zero'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition_partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition_partition]
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'partition_partition'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simp [partition]
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: simp [partition]
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition._match_1 p l_hd (partition p l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition._match_1 p l_hd (partition p l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact subsingleton.partial_le_of_lt l_hd.mpr l_tl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact subsingleton.partial_le_of_lt l_hd.mpr l_tl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'subsingleton.partial_le_of_lt'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'subsingleton.partial_le_of_lt'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact hd _ l_hd l_hd_eq_partition_iff
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact hd _ l_hd l_hd_eq_partition_iff
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'hd'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact part.cons _ _
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact part.cons _ _
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.cons'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: exact part.of_part _ _ _
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: exact part.of_part _ _ _
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'part.of_part'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'part.of_part'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l_tl with ���rfl, rfl���
+[try_get_tac_and_capture_result] parse_itactic failed on cases l_tl with ���rfl, rfl���
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on cases l_tl with ���rfl, rfl���
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: cases l_hd
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: cases l_hd
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: cases tactic failed, it is not applicable to the given hypothesis
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: cases tactic failed, it is not applicable to the given hypothesis
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply Partition.of_left
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: apply Partition.of_left
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: unknown identifier 'Partition.of_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: unknown identifier 'Partition.of_left'
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: apply_rules
+[try_get_tac_and_capture_result] parse_itactic failed on apply_rules
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on apply_rules
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intros h
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: intros h
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: intro tactic failed, Pi/let expression expected
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: intro tactic failed, Pi/let expression expected
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: intros_l hs
+[try_get_tac_and_capture_result] parse_itactic failed on intros_l hs
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on intros_l hs
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: rintros l_hd l_tl
+[try_get_tac_and_capture_result] parse_itactic failed on rintros l_hd l_tl
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on rintros l_hd l_tl
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: ext
+[try_get_tac_and_capture_result] parse_itactic failed on ext
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on ext
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: simpa using eq_of_le _ _ _
+[try_get_tac_and_capture_result] parse_itactic failed on simpa using eq_of_le _ _ _
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: [try_get_tac_and_capture_result] parse_itactic failed on simpa using eq_of_le _ _ _
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: refl
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: refl
+[get_tac_and_capture_result] RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+with
+  ?m_2 = ?m_2
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: invalid apply tactic, failed to unify
+  partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+with
+  ?m_2 = ?m_2
+POS: (some ⟨1, 2⟩)
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[get_tac_and_capture_result] PARSING TACTIC: try { refl }
+[get_tac_and_capture_result] PARSE SUCCESSFUL
+[get_tac_and_capture_result] TRYING TACTIC: try { refl }
+[get_tac_and_capture_result] RESULT: SUCCESS!
+NEW_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+VAL: ()
+[try_candidate] CAPTURED RESULT: EXCEPTION!
+MSG: tactic state no-op
+POS: none
+OLD_STATE: case list.cons
+α : Type u,
+p : α → Prop,
+_inst_1 : decidable_pred p,
+l_hd : α,
+l_tl : list α
+⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+[try_candidate] ENTERING
+[try_candidate] READ TACTIC STATE
+[try_candidate] END OF LOOP
+[run_all_beam_candidates] EXITING TRY_CANDIDATE LOOP
+[run_all_beam_candidates] SUCCESSFUL CANDIDATES: [(some (SUCCESS!
+        NEW_STATE: case list.cons
+        α : Type u,
+        p : α → Prop,
+        _inst_1 : decidable_pred p,
+        l_hd : α,
+        l_tl : list α
+        ⊢ partition._match_1 p l_hd (partition p l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+        VAL: (),
+        (simp [partition], 0.247145)))]
+[bfs_step] SUCCESSFUL CANDIDATES: [(SUCCESS!
+  NEW_STATE: case list.cons
+  α : Type u,
+  p : α → Prop,
+  _inst_1 : decidable_pred p,
+  l_hd : α,
+  l_tl : list α
+  ⊢ partition._match_1 p l_hd (partition p l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl))
+  VAL: (),
+  (simp [partition], 0.247145))]
+[bfs_step] NODES BEFORE SORTING: [BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition._match_1 p l_hd (partition p l_tl) =
+     (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -37010 [intros, cases l, refl, simp [partition]] 4)]
+[bfs_step] NODES AFTER SORTING: [BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition._match_1 p l_hd (partition p l_tl) =
+     (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -37010 [intros, cases l, refl, simp [partition]] 4)]
+DONE FLAG: ff
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (h : Type u
+ ⊢ ∀ (p : h → Prop) [_inst_1 : decidable_pred p] (l : list h),
+     partition p l = (filter p l, filter (not ∘ p) l) -5018 [intro h] 1),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11294 [intros,
+  cases l,
+  split] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition p (l_hd :: l_tl) = (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -11828 [intros,
+  cases l,
+  try { refl }] 3),
+ BFSNode.mk (case list.cons
+ α : Type u,
+ p : α → Prop,
+ _inst_1 : decidable_pred p,
+ l_hd : α,
+ l_tl : list α
+ ⊢ partition._match_1 p l_hd (partition p l_tl) =
+     (filter p (l_hd :: l_tl), filter (not ∘ p) (l_hd :: l_tl)) -37010 [intros, cases l, refl, simp [partition]] 4)]
+
+ 
+ 
+ PROMPT: [LN] GOAL case list.cons	α : Type u,	p : α → Prop,	_inst_1 : decidable_pred p,	l_hd : α,	l_tl : list α	⊢ list.partition._match_1 p l_hd (list.partition p l_tl) =	(list.filter p (l_hd :: l_tl), list.filter (not ∘ p) (l_hd :: l_tl)) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED

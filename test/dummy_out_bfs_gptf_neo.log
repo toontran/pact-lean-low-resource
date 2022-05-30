@@ -1,0 +1,1 @@
+{"all_failed_count":0,"api_failure_count":0,"decl_goal":"∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),\n  partition p l = (filter p l, filter (not ∘ p) l)","depth":0,"fuel_exhausted":false,"global_timeout":true,"num_queries":0,"states":[],"success":false,"tactics":[],"task_id":"list.partition_eq_filter_filter"}

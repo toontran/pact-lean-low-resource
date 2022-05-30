@@ -1,0 +1,2 @@
+  File "/home/tst008/.elan/bin/lean", line 1
+SyntaxError: Non-UTF-8 code starting with '\xf9' in file /home/tst008/.elan/bin/lean on line 2, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details

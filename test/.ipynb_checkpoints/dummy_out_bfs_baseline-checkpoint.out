@@ -1,0 +1,51 @@
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:1:0: error: file 'evaluation_step' not found in the search path
+Use 'lean --path' to see where lean is looking, or https://leanprover-community.github.io/file-not-found.html for more
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:1:0: error: file 'backends/bfs/baseline' not found in the search path
+Use 'lean --path' to see where lean is looking, or https://leanprover-community.github.io/file-not-found.html for more
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:1:0: error: file 'utils' not found in the search path
+Use 'lean --path' to see where lean is looking, or https://leanprover-community.github.io/file-not-found.html for more
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:3:0: error: invalid import: evaluation_step
+could not resolve import: evaluation_step
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:3:0: error: invalid import: backends.bfs.baseline
+could not resolve import: backends.bfs.baseline
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:3:0: error: invalid import: utils
+could not resolve import: utils
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:7:5: error: invalid namespace name 'baseline'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:10:16: error: unknown identifier 'io'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:11:9: error: unknown identifier 'io.cmdline_args'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:19:2: error: unknown identifier 'evaluation_harness_from_decls_file'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:20:5: error: unknown identifier 'tidy_bfs_proof_search_core'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:23:10: error: unknown identifier 'BFSState.of_current_state'
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:12:19: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:13:13: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:14:31: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:15:36: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:16:36: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:17:38: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:18:41: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  args
+has type
+  ?m_1
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:10:16: error: don't know how to synthesize placeholder
+context:
+⊢ Sort ?
+/home/tst008/pj/lean-tpe-public/src/evaluation/bfs/baseline.lean:10:5: error: type of sorry macro is not a sort
+<unknown>:1:1: error: could not resolve import: utils

@@ -1,0 +1,230 @@
+[evaluation_harness_from_decls_file] GOT 32 NAMES
+[evaluation_harness_from_decls_file] WARNING: SKIPPING 1
+[evaluation_harness_from_decls_file] ENTERING run_proof_search_core
+[run_proof_search_step] GOT TSD AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] GOT ENV AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] SET ENV AT DECL list.partition_eq_filter_filter
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (p : α → Prop)
+  [_inst_1 : decidable_pred p] (l : list α), partition p l = (filter p l, filter (not ∘ p) l)
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p]
+   (l : list α), partition p l = (filter p l, filter (not ∘ p) l) 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (p : α → Prop) [_inst_1 : decidable_pred p] (l : list α),	list.partition p l = (list.filter p l, list.filter (not ∘ p) l) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.filter_append
+[run_proof_search_step] GOT ENV AT DECL list.filter_append
+[run_proof_search_step] SET ENV AT DECL list.filter_append
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p]
+  (l₁ l₂ : list α), filter p (l₁ ++ l₂) = filter p l₁ ++ filter p l₂
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p]
+   (l₁ l₂ : list α), filter p (l₁ ++ l₂) = filter p l₁ ++ filter p l₂ 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p] (l₁ l₂ : list α),	list.filter p (l₁ ++ l₂) = list.filter p l₁ ++ list.filter p l₂ PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.filter_sublist
+[run_proof_search_step] GOT ENV AT DECL list.filter_sublist
+[run_proof_search_step] SET ENV AT DECL list.filter_sublist
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p]
+  (l : list α), filter p l <+ l
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p]
+   (l : list α), filter p l <+ l 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} {p : α → Prop} [h : decidable_pred p] (l : list α), list.filter p l <+ l PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.append_nil
+[run_proof_search_step] GOT ENV AT DECL list.append_nil
+[run_proof_search_step] SET ENV AT DECL list.append_nil
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (t : list α), t ++ nil = t
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (t : list α), t ++ nil = t 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (t : list α), t ++ list.nil = t PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.append_assoc
+[run_proof_search_step] GOT ENV AT DECL list.append_assoc
+[run_proof_search_step] SET ENV AT DECL list.append_assoc
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (s t u : list α),
+    s ++ t ++ u = s ++ (t ++ u)
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (s t u : list α),
+     s ++ t ++ u = s ++ (t ++ u) 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (s t u : list α), s ++ t ++ u = s ++ (t ++ u) PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.length_append
+[run_proof_search_step] GOT ENV AT DECL list.length_append
+[run_proof_search_step] SET ENV AT DECL list.length_append
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (s t : list α),
+    (s ++ t).length = s.length + t.length
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (s t : list α),
+     (s ++ t).length = s.length + t.length 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (s t : list α), (s ++ t).length = s.length + t.length PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.length_repeat
+[run_proof_search_step] GOT ENV AT DECL list.length_repeat
+[run_proof_search_step] SET ENV AT DECL list.length_repeat
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (a : α) (n : ℕ),
+    (repeat a n).length = n
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (a : α) (n : ℕ),
+     (repeat a n).length = n 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (a : α) (n : ℕ), (list.repeat a n).length = n PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.length_tail
+[run_proof_search_step] GOT ENV AT DECL list.length_tail
+[run_proof_search_step] SET ENV AT DECL list.length_tail
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (l : list α),
+    l.tail.length = l.length - 1
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (l : list α),
+     l.tail.length = l.length - 1 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (l : list α), l.tail.length = l.length - 1 PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.map_append
+[run_proof_search_step] GOT ENV AT DECL list.map_append
+[run_proof_search_step] SET ENV AT DECL list.map_append
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} {β : Type v} (f : α → β)
+  (l₁ l₂ : list α), map f (l₁ ++ l₂) = map f l₁ ++ map f l₂
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} {β : Type v} (f : α → β)
+   (l₁ l₂ : list α), map f (l₁ ++ l₂) = map f l₁ ++ map f l₂ 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} {β : Type v} (f : α → β) (l₁ l₂ : list α),	list.map f (l₁ ++ l₂) = list.map f l₁ ++ list.map f l₂ PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.map_id
+[run_proof_search_step] GOT ENV AT DECL list.map_id
+[run_proof_search_step] SET ENV AT DECL list.map_id
+[run_proof_search_step] ADDED OPEN NAMESPACES [nat, list]
+[run_proof_search_step] REBUILT TACTIC STATE, ENTERING SEARCH CORE WITH TIMEOUT 300000
+[run_proof_search_step] TACTIC STATE BEFORE SEARCH CORE: ⊢ ∀ {α : Type u} (l : list α), map id l = l
+[run_proof_search_step] NO GOT DECL
+[bfs_step] ENTERING, QUEUE STATE: [BFSNode.mk (⊢ ∀ {α : Type u} (l : list α), map id l = l 0 [] 0)]
+
+ 
+ 
+ PROMPT: [LN] GOAL ⊢ ∀ {α : Type u} (l : list α), list.map id l = l PROOFSTEP  
+ 
+ 
+ 
+[bfs_step] QUERYING API
+[openai.CompletionRequest.to_cmd] ENTERING
+[openai.CompletionRequest.to_tactic_json] VALIDATION PASSED
+python3: can't open file '/home/tung/pj/lean-winter/gptf-neo.py': [Errno 2] No such file or directory
+[openai.CompletionRequest.to_cmd] SERIALIZED
+[run_proof_search_step] GLOBAL TIMEOUT REACHED, ABORTING 
+[run_proof_search_step] GOT TSD AT DECL list.map_map
