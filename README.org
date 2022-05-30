@@ -3,7 +3,8 @@
 Since the original paper does not have code for the model, I've replicated the process (with changes for training & evaluation on a single consumer GPU NVIDIA RTX 2080 TI) and made the finetuned model publicly available.
 
 * Setup instructions
-The setups are similar to the publicly available (code)[https://github.com/jesse-michael-han/lean-tpe-public]
+The setups are similar to the publicly available [[https://github.com/jesse-michael-han/lean-tpe-public)][code]]
+
 Make sure to install elan: https://www.github.com/kha/elan
 
 ** Set up ~lean-tpe~ repository
@@ -140,6 +141,8 @@ python ./scripts/shuffle_lines.py $NAMES_FILE $SHUFFLED_NAMES_FILE # optional se
 #+end_src
 
 * Reference
+
+This code is based on [[https://github.com/jesse-michael-han/lean-tpe-public][Lean Theorem Proving Environment repo]], [[https://github.com/jesse-michael-han/lean-step-public][LeanStep dataset repo]] and adopted [[https://github.com/graykode/gpt-2-Pytorch][GPT-2 from scratch]]
 
 #+begin_src
 @article{han2021proof,
