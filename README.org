@@ -23,7 +23,7 @@ The Lean scripts will dump JSON messages to a specified file, with a new message
 
 ** Run some toy examples
 
-*WARNING:* The error messages of the Lean scripts are currently extremely unhelpful. Make sure arguments are passed in correct order.
+*WARNING:* Make sure arguments are passed in correct order.
 
 *** Check that single-threaded baseline evaluation works
 
