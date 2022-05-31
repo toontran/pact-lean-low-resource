@@ -1,0 +1,12 @@
+# exclude everything except the following directories 
+/*
+!/data
+!/scripts
+!/src
+!/test
+!/leanpkg.toml
+!/LICENSE
+!/README.org
+!/notebooks
+__pycache__
+.ipynb_checkpoints
