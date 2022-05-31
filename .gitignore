@@ -1,5 +1,6 @@
 # exclude everything except the following directories 
 /*
+!/.gitignore
 !/data
 !/scripts
 !/src
