@@ -30,6 +30,14 @@ Move file to directory ~$PACT_DIR/notebooks/data~
 
 ** Download finetuned model
 
+Download finetuned model from https://drive.google.com/file/d/1OVvHv-WPY7Oz_uum7ofV1yeto0sY-DrY/view?usp=sharing
+
+Move file to directory ~$PACT_DIR/notebooks/models~ 
+
+* Finetune instructions
+
+Simply run the ~GPT2_ProofStep_only.ipynb~ notebook, the code will try to find the finetuned model and train it further
+
 * Evaluation instructions
 The Lean scripts will dump JSON messages to a specified file, with a new message on each line. Each message encodes the history of a single proof search.
 
