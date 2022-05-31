@@ -1,5 +1,5 @@
 import evaluation_step_modified
-import backends.bfs.gptf_neo_8epoch_modified
+import backends.bfs.gptf_8epoch
 
 section main
 
