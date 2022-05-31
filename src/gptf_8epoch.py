@@ -87,44 +87,6 @@ def load_pretrained_GPT2(model):
     model.set_tied()
     with torch.no_grad():
         model.transformer.wte.weight[:50257, :] = state_dict['wte.weight']
-#     print(missing_keys, unexpected_keys, error_msgs)
-
-# def load_checkpoint(config, output_dir, output_prefix, new_train = 0):
-#     files = []
-#     if not os.path.exists(output_dir):
-#         os.makedirs(output_dir)
-# #         print(f"Creating output directory {output_dir}")
-#     else:    
-#         files = [f for f in os.listdir(output_dir) if isfile(join(output_dir, f))]
-
-#     # Find training stats
-#     stats_filename = "stats.json"
-#     if stats_filename in files:
-#         with open(os.path.join(output_dir, stats_filename), 'r') as f:
-#             training_stats = json.load(f)
-#     else:
-#         training_stats = []
-# #     print(f"Length of current stats file: {len(training_stats)}\n")
-
-#     # Find checkpoints
-#     r = re.compile(f"{output_prefix}-[0-9]*.pt")
-#     model_files = list(filter(r.match, files))
-# #     print(f"Found checkpoints: {model_files}")
-#     epochs_list = [int(x[ len(output_prefix)+1 : -3 ]) for x in model_files]
-#     model = GPT2LMHeadModel(config)
-#     if epochs_list:
-#         current_epoch = max(epochs_list)
-#         min_val_loss = min([x["Valid. Loss"] for x in training_stats])
-#         model.load_state_dict(
-#                 torch.load(os.path.join(output_dir, f"{output_prefix}-{current_epoch}.pt"))
-#         )
-# #         print(f"Checkpoint #{current_epoch} found, with min_val_loss of {min_val_loss:.3f}, resuming.")
-#     else:
-#         current_epoch = 0
-#         min_val_loss = float("inf")
-#         load_pretrained_GPT2(model)
-#         print(f"Checkpoint not found, starting from epoch #{current_epoch}, min_val_loss of {min_val_loss:.3f}.")
-#     return model, current_epoch, min_val_loss, training_stats
 
 def load_checkpoint_at_epoch(epoch, config, output_dir, output_prefix, new_train = 0):
     files = []
@@ -328,52 +290,9 @@ def sample_parseable_sequence(model, encoder, max_length=16, text=None, temperat
 #             print(outputs)
             if has_end:
                 keep_indices.append(j)
-#                 outputs[j]["logprobs"].append(value)
-#     prev = context
-#     output = context
-#     past = None
-#     has_end = False
-#     with torch.no_grad():
-#         for i in range(max_length):
-#             logits, past = model(prev, past=past)
-#             logits = logits[:, -1, :] / temperature
-#             logits = top_k_logits(logits, k=top_k)
-#             log_probs = F.softmax(logits, dim=-1)
-#             if True:
-#                 prev = torch.multinomial(log_probs, num_samples=1)
-#             else:
-#                 _, prev = torch.topk(log_probs, k=1, dim=-1)
-#             if prev.tolist()[0][0] in special_tokens:
-#                 has_end = True
-#                 break
-#             output = torch.cat((output, prev), dim=1)
-#     output = output[:, len(context_tokens):].tolist()
-#     outputs = [{
-#         "text": enc.decode(output[0]),
-#         "logprobs": {"token_logprobs": [0.5]},
-#     }]
     outputs = [outputs[j] for j in keep_indices]
     return outputs
-    
-    
-# def _sample_parsesable_sequence(model, encoder, prev, past, max_length=16, toks=[], temperature=1, top_k=1, device='cuda'):
-#     if 
-    
-#     logits, past = model(prev, past=past)
-#     logits = logits[:, -1, :] / temperature
-#     logits = top_k_logits(logits, k=top_k)
-#     log_probs = F.softmax(logits, dim=-1)
-#     values, prev = torch.topk(log_probs, k=top_k, dim=-1)
-#     p = prev.tolist()
-#     ret = []
-#     for k in range(top_k): # Will add top_p
-#         ret.extend(
-#             _sample_parsesable_sequence(model, encoder, prev, past, 
-#                                        max_length=max_length, text=text, 
-#                                        temperature=temperature, top_k=top_k, 
-#                                        device=device)
-#         )
-#         if len(ret)
+
 
 def terminated(tokens, max_length, enc):
     special_tokens = [
@@ -388,100 +307,7 @@ def terminated(tokens, max_length, enc):
     else:
         return False
 
-# def sample_sequence_budgeted(model, encoder, budget=100, max_length=16, text=None, temperature=1, top_k=1, device='cuda'):
-#     # terminate if encounter special tokens OR max_depth reached (in which case, auto eliminate)
-#     # infer -> top_p top_k -> p predictions
-#     # pass down dfs(), put result into list of predictions
-#     # if length list > 100 or so, try parsing & eliminate un-parseable candidates
-#     # if parseable > 30, return first 30 (best candidates)
-#     # return list
-#     # TODO: Try top_p top_k first, then try writing terminate condition
-#     # Then, put the whole infer thing in, try with low p & k
-#     # Then, try parsing.
-#     # May use something like: Infer first 3 layers, try, then continue infering next layer w.r.t prob product, trim when width exceed some threshold
-#     assert text is not None, 'Specify context!'
-#     context = torch.tensor(encoder.encode(text), device=device, dtype=torch.long).unsqueeze(0)
-# #     print(f"Context:{text}, encoded:{context}")
-#     prev = context
-#     tokens = []
-#     past = None
-#     with torch.no_grad():
-#         logits, past = model(prev, past=past)
-#         logits = logits[:, -1, :] / temperature
-#         logits = top_k_logits(logits, k=top_k)
-#         log_probs = F.softmax(logits, dim=-1)
-#         values, prev = torch.topk(log_probs, k=top_k, dim=-1)
-#         p = prev.tolist()
-        
-#         used_budget = 0
-#         outputs = []
-#         for i in range(top_k):
-#             toks = copy.deepcopy(tokens)
-#             toks.append(p[0][i]) # ith best token
-#             probability = values[0][i].item()
-#             current_budget = round(probability * budget)
-#             used_budget += current_budget
-#             if used_budget >= budget or current_budget == 0:
-#                 break
 
-# #             print(f"Spending {current_budget}/{budget} on {encoder.decode([toks[-1]])} with probability {probability:.3f}")
-#             outputs.extend(_sample_sequence_budgeted(model, encoder, 
-#                                                     copy.deepcopy(prev), copy.deepcopy(past), toks, budget=current_budget, 
-#                                                     max_length=max_length, 
-#                                                     temperature=temperature, 
-#                                                     top_k=top_k, 
-#                                                     device=device))
-#     return outputs
-
-
-# def _sample_sequence_budgeted(model, encoder, 
-#                               prev, past, tokens, budget=100, 
-#                               max_length=16, temperature=1, top_k=1, device='cuda'):
-#     if terminated(tokens, max_length, encoder): # Based on tokens
-#         # Return empty if tokens not terminated before max_length
-#         # Else return without terminating token
-#         # TODO: Return a dictionary with text and logprobs instead
-#         return [{
-#             "text": encoder.decode(tokens[:-1]),    
-#         }] # Exclude last token
-        
-#     logits, past = model(prev, past=past)
-#     logits = logits[:, -1, :] / temperature
-#     logits = top_k_logits(logits, k=top_k)
-#     log_probs = F.softmax(logits, dim=-1)
-#     values, prev = torch.topk(log_probs, k=top_k, dim=-1)
-#     p = prev.tolist()
-#     outputs = []
-    
-#     # Simply choose most confident token
-#     if budget == 1:
-#         tokens.append(p[0][0])
-#         outputs.extend(_sample_sequence_budgeted(model, encoder, 
-#                                                 copy.deepcopy(prev), copy.deepcopy(past), tokens, budget=budget, 
-#                                                 max_length=max_length, 
-#                                                 temperature=temperature, 
-#                                                 top_k=top_k, 
-#                                                 device=device))
-#         return outputs
-    
-#     used_budget = 0
-#     for i in range(top_k):
-#         toks = copy.deepcopy(tokens)
-#         toks.append(p[0][i]) # ith best token
-#         probability = values[0][i].item()
-#         current_budget = round(probability * budget)
-#         used_budget += current_budget
-#         if used_budget >= budget or current_budget == 0:
-#             break
-        
-# #         print(f"Spending {current_budget}/{budget} on {encoder.decode([toks[-1]])} with probability {probability:.3f}")
-#         outputs.extend(_sample_sequence_budgeted(model, encoder, 
-#                                                 copy.deepcopy(prev), copy.deepcopy(past), toks, budget=current_budget, 
-#                                                 max_length=max_length, 
-#                                                 temperature=temperature, 
-#                                                 top_k=top_k, 
-#                                                 device=device))
-#     return outputs
 
 def sample_sequence_budgeted(model, encoder, budget=50, max_length=16, text=None, temperature=1, top_k=1, device='cuda'):
     # terminate if encounter special tokens OR max_depth reached (in which case, auto eliminate)
@@ -608,7 +434,7 @@ if __name__ == "__main__":
     args = _parse()
 #     print(args)
     
-    output_dir="/home/tst008/pj/lean-winter/models" # TODO: move to ~/data folder
+    output_dir="notebooks/models" 
     output_prefix="proofstep-named-1B"
     
     config = GPT2Config()
