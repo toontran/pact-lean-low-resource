@@ -47,8 +47,8 @@ def _parse_main():
     parser.add_argument("--lean_threads", help="number of threads per Lean process", default=None)
     parser.add_argument("--lean_timeout", help="deterministic timeout for Lean process in millions of allocations. Interactive default is one. Default is unbounded (none).", default=None)
 
-    parser.add_argument("--api", default="gptf", 
-        help="gptf|baseline|fairseq|gptf_neo|gptf_neo_withoutparsing|gptf_neo_8epoch")
+    parser.add_argument("--api", default="gptf_8epoch", 
+        help="baseline|gptf_8epoch")
     parser.add_argument("--search_strategy", default="greedy", help="greedy|bfs")
     parser.add_argument("--tac_timeout", default=5, help="tactic execution timeout (s)", type=int)
     parser.add_argument("--global_timeout", default=300, help="proof search timeout (s)", type=int)
@@ -71,22 +71,8 @@ def eval_decls_step(decl_file: str, dest: str, opts):
         raise Exception("[parallel_eval] ERROR: max_width and max_depth must be set for BFS")
     if opts.api == "baseline":
         lean_script = f"./src/evaluation/{strat}/baseline.lean" 
-    elif opts.api == "gptf": 
-        lean_script = f"./src/evaluation/{strat}/gptf.lean" 
-    elif opts.api =="fairseq": 
-        lean_script = f"./src/evaluation/{strat}/fairseq.lean"
-    elif opts.api =="gptf_neo": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo.lean"
-    elif opts.api =="gptf_neo_withoutparsing": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo_withoutparsing.lean"
-    elif opts.api =="gptf_neo_8epoch": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo_8epoch.lean"
-    elif opts.api =="gptf_neo_16epoch": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo_16epoch.lean"
-    elif opts.api =="gptf_neo_32epoch": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo_32epoch.lean"
-    elif opts.api =="gptf_neo_8epoch_modified": 
-        lean_script = f"./src/evaluation/{strat}/gptf_neo_8epoch_modified.lean"
+    elif opts.api =="gptf_8epoch": 
+        lean_script = f"./src/evaluation/{strat}/gptf_8epoch.lean"
     import os
     from os.path import expanduser, join
     home = expanduser("~")
@@ -100,39 +86,7 @@ def eval_decls_step(decl_file: str, dest: str, opts):
     lean_cmd += [dest]
     if opts.api == "baseline":
         lean_cmd += list(map(str, [opts.fuel, opts.tac_timeout, opts.global_timeout])) if strat == "greedy" else list(map(str, [opts.fuel, opts.max_width, opts.max_depth, opts.tac_timeout, opts.global_timeout]))
-    elif opts.api == "gptf":
-        if strat == "greedy":
-          extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        else: # bfs
-          extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "fairseq":
-        # TODO(yuhuai)
-        extra_args = [opts.max_tokens, opts.temperature, opts.nbest, opts.beam, opts.fuel, opts.entry_pt, opts.model_path, opts.data_path, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo":
-        extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo_withoutparsing":
-        extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo_8epoch":
-        extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo_16epoch":
-        extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo_32epoch":
-        extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
-        assert not any(x is None for x in extra_args)
-        lean_cmd += list(map(str, extra_args))
-    elif opts.api == "gptf_neo_8epoch_modified":
+    elif opts.api == "gptf_8epoch":
         extra_args = [opts.max_tokens, opts.temperature, opts.top_p, opts.n, opts.best_of, opts.fuel, opts.max_width, opts.max_depth, opts.engine_id, opts.api_key, opts.tac_timeout, opts.global_timeout]
         assert not any(x is None for x in extra_args)
         lean_cmd += list(map(str, extra_args))
