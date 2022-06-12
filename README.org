@@ -1,4 +1,4 @@
-#+TITLE: Code for PACT paper on Low Resource
+#+TITLE: Low-Resource Reimplementation of PACT   
 
 Since the original paper does not have code for the model, I've replicated the process (without pretraining on WebMath) with changes for training & evaluation on a single consumer GPU NVIDIA RTX 2080 TI) and made the finetuned model publicly available.
 
